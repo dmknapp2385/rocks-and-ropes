@@ -15,35 +15,52 @@ type User {
   email: String
   bookCount: Int
   savedBooks: [Book]
+  calendar: [Calendar]
 }
 
-type Book {
-  bookId: String
-  authors: [String]
-  description: String
-  title: String
-  image: String 
+type Calendar {
+  calendarId: String
+  day: String
+  activity: [Activity]
+}
+
+type Activity {
+  activityId: String
+  name: String
+  note: String
+  sets: Int
+  reps: Int
+  time: String
   link: String
 }
 
-input BookInput {
-  bookId: String
-  authors: [String]
+type FreeWeight {
+  freeId: String
+  name: String
   description: String
-  title: String
   image: String
+}
+
+input ActivityInput {
+  name: String
+  note: String
+  sets: Int
+  reps: Int
+  time: String
   link: String
 }
 
   type Query {
     me: User
+    freeWeight: FreeWeight
+    activity: Activity
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(input: BookInput): User
-    removeBook(bookId: String!): User
+    addActivity(input: ActivityInput): User
+    removeActivity(activityId: String!): User
   }
 `;
 
