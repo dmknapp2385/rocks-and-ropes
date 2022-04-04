@@ -7,6 +7,9 @@ import Upstairs from './Pages/Upstairs';
 import Weights from './Pages/Weights';
 import Navbar from './Components/Navbar';
 import Calendar from './Components/Calendar';
+import FreeWeights from "./Pages/FreeWeights";
+import Rings from "./Pages/Rings";
+import Trx from "./Pages/Trx";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,6 +40,9 @@ function App() {
             <Route exact path='/upstairs' component={Upstairs} />
             <Route exact path='/weights' component={Weights} />
             <Route exact path='/calendar' component={Calendar} />
+            <Route exact path='/weights/trx' component={Trx} />
+            <Route exact path='/weights/rings' component={Rings} />
+            <Route exact path='/weights/free' component={FreeWeights} />
           </Switch>
         </Router>
     </ApolloProvider>
