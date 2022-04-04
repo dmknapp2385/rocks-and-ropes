@@ -12,6 +12,22 @@ const resolvers = {
           return userData;
         }
         throw new AuthenticationError('Not logged in');
+      },
+      activities: async (parent, args) => {
+          const activityData = await Activity.find({})
+          return activityData;
+      },
+      activity: async (parent, {_id}) => {
+        const activityData = await Activity.findOne({ _id })
+        return activityData;
+      },
+      freeWeights: async (parent, args) => {
+          const weightData = await FreeWeight.find({})
+          return weightData;
+      },
+      freeWeight: async (parent, {_id}) => {
+        const freeWeightData = await FreeWeight.findOne({ _id })
+        return freeWeightData;
       }
     },
 
@@ -38,9 +54,9 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-      saveBook: async(parent, args, context) => {
+      addActivity: async(parent, { inpput }, context) => {
         if(context.user){
-          const updatedUser = await User.findOneAndUpdate(
+          const updatedCalendar = await Calendar.findOneAndUpdate(
             { _id: context.user._id },
             { $addToSet: { savedBooks: args.input } },
             { new: true, runValidators: true }

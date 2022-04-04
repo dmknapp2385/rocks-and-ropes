@@ -25,7 +25,8 @@ type Calendar {
 }
 
 type Activity {
-  activityId: String
+  _id: ID
+  day: String
   name: String
   note: String
   sets: Int
@@ -35,13 +36,14 @@ type Activity {
 }
 
 type FreeWeight {
-  freeId: String
+  _id: ID
   name: String
   description: String
   image: String
 }
 
 input ActivityInput {
+  day: String
   name: String
   note: String
   sets: Int
@@ -52,8 +54,10 @@ input ActivityInput {
 
   type Query {
     me: User
-    freeWeight: FreeWeight
-    activity: Activity
+    freeWeights: [FreeWeight]
+    freeWeight(_id: ID!): FreeWeight
+    activities: [Activity]
+    activity(_id:ID): Activity
   }
 
   type Mutation {
