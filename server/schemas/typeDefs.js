@@ -13,13 +13,11 @@ type User {
   _id: ID
   username: String
   email: String
-  bookCount: Int
-  savedBooks: [Book]
   calendar: [Calendar]
 }
 
 type Calendar {
-  calendarId: String
+  _id: ID
   day: String
   activity: [Activity]
 }
@@ -57,14 +55,14 @@ input ActivityInput {
     freeWeights: [FreeWeight]
     freeWeight(_id: ID!): FreeWeight
     activities: [Activity]
-    activity(_id:ID): Activity
+    activity(_id:ID!): Activity
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addActivity(input: ActivityInput): User
-    removeActivity(activityId: String!): User
+    addActivity(calendarId: ID!, input: ActivityInput): Calendar
+    removeActivity(calendarId:ID!, activityId: ID!): Calendar
   }
 `;
 

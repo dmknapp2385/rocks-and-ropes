@@ -54,26 +54,28 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-      addActivity: async(parent, { inpput }, context) => {
+      addActivity: async(parent, args, context) => {
         if(context.user){
+          const activity = await Activity.create(args.input)
+          
           const updatedCalendar = await Calendar.findOneAndUpdate(
-            { _id: context.user._id },
-            { $addToSet: { savedBooks: args.input } },
+            { _id:  args.id},
+            { $addToSet: { activity: activity._id } },
             { new: true, runValidators: true }
           );
-          return updatedUser;
+          return updatedCalendar;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
-      removeBook: async(parent, args, context) => {
+      removeActivity: async(parent, args, context) => {
         if(context.user){
-          const updatedUser = await User.findOneAndUpdate(
-            { _id: context.user._id },
-            { $pull: { savedBooks: { bookId: args.bookId } } },
+          const updatedCalendar = await Calendar.findOneAndUpdate(
+            { _id: args.id },
+            { $pull: { activity: { activityId: args.activityId } } },
             { new: true }
           );
 
-          return updatedUser;
+          return updatedCalendar;
         }
         throw new AuthenticationError('You need to be logged in!');
       }
