@@ -25,6 +25,7 @@ type Activity {
   sets: Int
   reps: Int
   link: String
+  userId: User
 }
 
 type FreeWeight {
@@ -42,6 +43,7 @@ input ActivityInput {
   sets: Int
   reps: Int
   link: String
+  userId: String
 }
 
   type Query {
