@@ -90,19 +90,19 @@ function CalendarPage() {
                 <Dropdown.Item onClick={()=>setMonth('December')}>December</Dropdown.Item>
             </Dropdown.Menu>
             </Dropdown>
-        <Row className="mt-5 text-center" style={{borderStyle: 'solid'}}>
-            <Col style={{borderRight: 'solid'}} xs={1}>Sunday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Monday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Tuesday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Wednesday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Thursday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Friday</Col>
-            <Col style={{borderRight: 'solid'}} xs={1}>Saturday</Col>
+        <Row className="mt-5 text-center">
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Sunday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Monday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Tuesday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Wednesday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Thursday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Friday</Col>
+            <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Saturday</Col>
         </Row>
         {RowDateArrays.map((rowArray, index)=>(
-            <Row key={index} style={{border: 'solid', height: '100px'}}>
+            <Row key={index} style={{ height: '100px'}}>
                 {rowArray.map((dateobj)=>(
-                    <Col key={`${dateobj.month} / ${dateobj.day}`} xs={1} className={`${dateobj.month}-${dateobj.day} text-justify`} style={{borderRight:'solid'}}>
+                    <Col key={`${dateobj.month} / ${dateobj.day}`} xs={1} className={`${dateobj.month}-${dateobj.day} text-justify`} style={{borderRight:'solid', borderTop: 'solid'}}>
                         <ul style={{listStyleType:'none'}}>
                             <li className="text-right">{dateobj.day}</li>
                         </ul>
