@@ -1,8 +1,8 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const activitySchema = new Schema({
   day: {
-    type: Date,
+    type: String,
     required: true
   },
   length: {
@@ -23,7 +23,13 @@ const activitySchema = new Schema({
   },
   link: {
     type: String
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
   }
 });
 
-module.exports = activitySchema;
+const Activity = model('Activity', activitySchema);
+
+module.exports = Activity;
