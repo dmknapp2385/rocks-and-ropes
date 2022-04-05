@@ -102,7 +102,7 @@ function CalendarPage() {
         {RowDateArrays.map((rowArray, index)=>(
             <Row key={index} style={{border: 'solid', height: '100px'}}>
                 {rowArray.map((dateobj)=>(
-                    <Col key={`${dateobj.month} / ${dateobj.day}`} xs={1} className="text-justify" style={{borderRight:'solid'}}>
+                    <Col key={`${dateobj.month} / ${dateobj.day}`} xs={1} className={`${dateobj.month}-${dateobj.day} text-justify`} style={{borderRight:'solid'}}>
                         <ul style={{listStyleType:'none'}}>
                             <li className="text-right">{dateobj.day}</li>
                         </ul>
