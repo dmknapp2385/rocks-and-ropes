@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Container, Row, Col, Dropdown} from 'react-bootstrap';
 
 
@@ -9,39 +9,43 @@ function CalendarPage() {
     let currentMonth = montharray[today.getMonth()];
 
     //component reload for dropdown button
-    const [month, setMonth] = useState(currentMonth)
-    const year = '2022'
+    const [month, setMonth] = useState(currentMonth);
+
+    //hook for getting the array of row dates
+    const [RowDateArrays, SetRowDateArrays] = useState([]);
+
     // variables for first day of the current calendar month
+    const year = '2022'
     const firstOfMonth = new Date(`${month} 1, ${year}`);
     const day = firstOfMonth.getDay();
     const lastOfMonth = new Date(2022, firstOfMonth.getMonth(), 0)
     let prevDay =lastOfMonth.getDate();
-
-    //returns last day of current month
-    function getLastDAyOfMonth () {
-        return new Date(2022, (firstOfMonth.getMonth() + 1), 0).getDate();
-    }
-
-    //gets the array of dates for the first row in the calendar based on the month selected and the year
-    function getFirstcolArray() {
-        let firstColArray = [1];
-        for(let i=0; i<day; i++) {
-            firstColArray.unshift(prevDay-i)
+    
+    // hook to get dates on [month]
+    useEffect(() => {
+        //returns last day of current month
+        function getLastDAyOfMonth () {
+            return new Date(2022, (firstOfMonth.getMonth() + 1), 0).getDate();
         }
-        for(let i=1; i <= (6-day); i++){
-            firstColArray.push(1+i)
+
+        //gets the array of dates for the first row in the calendar based on the month selected and the year
+        function getFirstcolArray() {
+            let firstColArray = [1];
+            for(let i=0; i<day; i++) {
+                firstColArray.unshift(prevDay-i)
+            }
+            for(let i=1; i <= (6-day); i++){
+                firstColArray.push(1+i)
+            }
+            return firstColArray;
         }
-        return firstColArray;
-    }
 
+        //function to create arrays for the rows 1 through 6
 
-    //function to create array for the row 2 through 5
-
-    function getRowDAtes() {
         let sunday = 7- day;
         //constant to add to start of next month
         let k = 1;
-        let rowsArays = []
+        let rowsArays = [getFirstcolArray()];
         for (let i = 0; i <5; i++) {
             const lastDay = getLastDAyOfMonth();
             let rowArray = []
@@ -58,8 +62,12 @@ function CalendarPage() {
             sunday += 7;
         }
         //instead set rowsArrays in useState function react
-        return rowsArays;
-    };
+        SetRowDateArrays(rowsArays);
+        
+
+    }, [month])
+    
+    // need to get window size to condiationally render smaller views for <700px
 
   return (
     <Container fluid className="mx-auto">
@@ -85,15 +93,25 @@ function CalendarPage() {
             </Dropdown.Menu>
             </Dropdown>
         <Row className="mt-5 text-center" style={{borderStyle: 'solid'}}>
-            <Col style={{borderRight: 'solid'}} sm={1}>Sunday</Col>
-            <Col style={{borderRight: 'solid'}} sm={2}>Monday</Col>
-            <Col style={{borderRight: 'solid'}} sm={2}>Tuesday</Col>
-            <Col style={{borderRight: 'solid'}} sm={2}>Wednesday</Col>
-            <Col style={{borderRight: 'solid'}} sm={2}>Thursday</Col>
-            <Col style={{borderRight: 'solid'}} sm={2}>Friday</Col>
-            <Col style={{borderRight: 'solid'}} sm={1}>Saturday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Sunday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Monday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Tuesday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Wednesday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Thursday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Friday</Col>
+            <Col style={{borderRight: 'solid'}} xs={1}>Saturday</Col>
         </Row>
-
+        {RowDateArrays.map((rowArray)=>(
+            <Row style={{border: 'solid', height: '100px'}}>
+                {rowArray.map((date)=>(
+                    <Col xs={1} className="text-justify" style={{borderRight:'solid'}}>
+                        <ul style={{listStyleType:'none'}}>
+                            <li className="text-right">{date}</li>
+                        </ul>
+                    </Col>
+                ))}
+            </Row>
+        ))}
     </Container>
   )
 }
