@@ -54,14 +54,17 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-      addActivity: async(parent, args, context) => {
+      addActivity: async(parent, { input }, context) => {
         if(context.user){
+          console.log(input);
 
-          const activity = await Activity.create(args.input)
+          const activity = await Activity.create(input)
+
+          console.log(activity);
 
           const updatedUser = await User.findOneAndUpdate (
             { _id: context._id},
-            { $addToSet: { activities: activity._id } },
+            { $addToSet: { savedActivities: activity } },
             { new: true, runValidators: true }
           );
           return updatedUser;

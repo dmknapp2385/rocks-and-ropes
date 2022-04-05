@@ -13,17 +13,17 @@ type User {
   _id: ID
   username: String
   email: String
-  activities: [Activity]
+  savedActivities: [Activity]
 }
 
 type Activity {
   _id: ID
   day: String
+  length: String
   name: String
   note: String
   sets: Int
   reps: Int
-  time: String
   link: String
 }
 
@@ -36,11 +36,11 @@ type FreeWeight {
 
 input ActivityInput {
   day: String
+  length: String
   name: String
   note: String
   sets: Int
   reps: Int
-  length: String
   link: String
 }
 
@@ -55,8 +55,8 @@ input ActivityInput {
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addActivity(calendarId: ID!, input: ActivityInput): Calendar
-    removeActivity(calendarId:ID!, activityId: ID!): Calendar
+    addActivity(input: ActivityInput): User
+    removeActivity(activityId: ID!): User
   }
 `;
 
