@@ -4,6 +4,14 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Homepage from './Pages/Home';
+import Upstairs from './Pages/Upstairs';
+import Weights from './Pages/Weights';
+import Navbar from './Components/Navbar';
+import Calendar from './Components/Calendar';
+import FreeWeights from "./Pages/FreeWeights";
+import Rings from "./Pages/Rings";
+import Trx from "./Pages/Trx";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -27,12 +35,20 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
-        </Switch>
-      </Router>
+      <Navbar />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/upstairs' component={Upstairs} />
+            <Route exact path='/weights' component={Weights} />
+            <Route exact path='/calendar' component={Calendar} />
+            <Route exact path='/weights/trx' component={Trx} />
+            <Route exact path='/weights/rings' component={Rings} />
+            <Route exact path='/weights/free' component={FreeWeights} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+          </Switch>
+        </Router>
     </ApolloProvider>
   );
 }
