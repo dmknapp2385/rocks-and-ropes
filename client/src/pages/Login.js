@@ -38,7 +38,7 @@ const Login = () => {
     return (
         <div className="d-flex flex-row justify-content-center" >
             <form onSubmit={handleFormSubmit} style={{ width: "50%" }}>
-                <div className="d-flex flex-column align-items-start" style={{width: "100%"}}>
+                <div className="d-flex flex-column align-items-start pt-5" style={{width: "100%"}}>
                     <h2 className="h2">Welcome back!</h2>
                     <h3 className = "h3">Sign into your account.</h3>
                     <label htmlFor="email">Email:</label>
