@@ -1,10 +1,11 @@
 import React from "react";
+import { Container } from 'react-bootstrap';
 
 function Trx() {
     return(
-        <div>
-            Trx page
-        </div>
+        <Container fluid>
+            
+        </Container>
     )
 }
 
