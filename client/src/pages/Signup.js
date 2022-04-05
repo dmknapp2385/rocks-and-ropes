@@ -42,37 +42,50 @@ const Signup = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleFormSubmit}>
-                <input
-                    name="username"
-                    id="username"
-                    type="username"
-                    placeholder='Your username'
-                    value={username}
-                    onChange={handleFormChange}
-                />
-                <input
-                    name="email"
-                    id="email"
-                    type="email"
-                    placeholder='Your email'
-                    value={email}
-                    onChange={handleFormChange}
-                />
-                <input
-                    name='password'
-                    id="password"
-                    type="password"
-                    placeholder='*******'
-                    value={password}
-                    onChange={handleFormChange}
-                />
-                <button type='submit'>
-                    Submit
-                </button>
+        <div className="d-flex flex-row justify-content-center" >
+            <form onSubmit={handleFormSubmit} style={{ width: "50%" }}>
+                <div className="d-flex flex-column align-items-start pt-5" style={{ width: "100%" }}>
+                    <h2 className="h2">Welcome!</h2>
+                    <h3 className="h3">Create an account.</h3>
+                    <label htmlFor="username">Username:</label>
+                    <input className="mr-5 mb-5"
+                        style={{ width: "70%" }}
+                        name="username"
+                        id="username"
+                        type="username"
+                        placeholder='Your username'
+                        value={username}
+                        onChange={handleFormChange}
+                    />
+                    <label htmlFor="email">Email:</label>
+                    <input className="mr-5 mb-5"
+                        style={{ width: "70%" }}
+                        name="email"
+                        id="email"
+                        type="email"
+                        placeholder='Your email'
+                        value={email}
+                        onChange={handleFormChange}
+                    />
+                    <label htmlFor="password">Password:</label>
+                    <input className="mr-5 mb-5"
+                        style={{ width: "70%" }}
+                        name='password'
+                        id="password"
+                        type="password"
+                        placeholder='*******'
+                        value={password}
+                        onChange={handleFormChange}
+                    />
+                    <div className="d-flex justify-content-center" style={{ width: "65%" }}>
+                        <button type='submit' className="ml-5 p-2 rounded border-dark shadow">
+                            Submit
+                        </button>
+                    </div>
+                </div>
             </form>
             {/*error && <div>Sign up failed</div>*/}
+
         </div>
     );
 }
