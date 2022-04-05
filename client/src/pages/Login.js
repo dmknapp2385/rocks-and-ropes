@@ -36,29 +36,41 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleFormSubmit}>
-                <input
-                    name="email"
-                    onChange={handleFormChange}
-                    type="email"
-                    id="email"
-                    placeholder='Your email'
-                    value={email}
-                />
-                <input
-                    name="password"
-                    onChange={handleFormChange}
-                    type="password"
-                    id="password"
-                    placeholder='*******'
-                    value={password}
-                />
-                <button type='submit'>
-                    Submit
-                </button>
+        <div className="d-flex flex-row justify-content-center" >
+            <form onSubmit={handleFormSubmit} style={{ width: "50%" }}>
+                <div className="d-flex flex-column align-items-start pt-5" style={{width: "100%"}}>
+                    <h2 className="h2">Welcome back!</h2>
+                    <h3 className = "h3">Sign into your account.</h3>
+                    <label htmlFor="email">Email:</label>
+                    <input className="mr-5 mb-5"
+                        style={{width: "70%"}}
+                        name="email"
+                        onChange={handleFormChange}
+                        type="email"
+                        id="email"
+                        placeholder='Your email'
+                        value={email}
+                    />
+                    <label htmlFor="password">Password:</label>
+                    <input className="mr-5 mb-5"
+                        style={{width: "70%"}}
+                        name="password"
+                        onChange={handleFormChange}
+                        type="password"
+                        id="password"
+                        label="Password"
+                        placeholder='*******'
+                        value={password}
+                    />
+                    <div className="d-flex justify-content-center" style={{width: "65%"}}>
+                        <button type='submit' className="ml-5 p-2 rounded border-dark shadow">
+                            Submit
+                        </button>
+                    </div>
+                </div>
             </form>
             {/*error && <div>Login failed</div>*/}
+
         </div>
     );
 }
