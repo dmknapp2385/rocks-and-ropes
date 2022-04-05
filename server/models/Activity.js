@@ -5,9 +5,8 @@ const activitySchema = new Schema({
     type: Date,
     required: true
   },
-  time: {
-    type: String,
-    required: true
+  length: {
+    type: String
   },
   name: {
     type: String,
@@ -17,8 +16,10 @@ const activitySchema = new Schema({
     type: String
   },
   sets: {
-    type: Number,
-    required: true
+    type: Number
+  },
+  reps: {
+    type: Number
   },
   link: {
     type: String
