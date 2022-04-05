@@ -51,6 +51,7 @@ input ActivityInput {
     freeWeights: [FreeWeight]
     freeWeight(_id: ID!): FreeWeight
     activities: [Activity]
+    activitiesByDay (userId: String, day: String): [Activity]
     activity(_id:ID!): Activity
   }
 

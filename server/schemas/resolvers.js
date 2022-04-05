@@ -25,6 +25,15 @@ const resolvers = {
       })
       return activityData;
     },
+    activitiesByDay: async (parent, args) => {
+      const activityData = await Activity.find({})
+      .where({userId: args.userId, day: args.day })
+      .populate({
+        path: 'userId',
+        select: '-__v'
+      })
+      return activityData;
+    },
     activity: async (parent, { _id }) => {
       const activityData = await Activity.findOne({ _id })
       .populate({
@@ -86,15 +95,18 @@ const resolvers = {
     },
     removeActivity: async (parent, args, context) => {
       if (context.user) {
+        console.log(args);
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { activityId: args._id } } },
+          { $pull: { savedActivities: { activityId: args.activityId } } },
           { new: true }
         )
         .populate({
           path: 'savedActivities',
           select: '-__v'
         })
+
+        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
 
         return updatedUser;
       }
