@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -32,19 +32,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <ApolloProvider client={client}>
       <Navbar />
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
-            <Route exact path='/upstairs' component={Upstairs} />
+            <Route exact path='/upstairs' render={(props) => <Upstairs {...props} setShowModal={setShowModal}/>}/>
             <Route exact path='/weights' component={Weights} />
             <Route exact path='/calendar' component={CalendarPage} />
-            <Route exact path='/weights/trx' component={Trx} />
-            <Route exact path='/weights/rings' component={Rings} />
-            <Route exact path='/weights/free' component={FreeWeights} />
+            <Route exact path='/weights/trx' render={(props) => <Trx {...props} setShowModal={setShowModal}/>} />
+            <Route exact path='/weights/rings' render={(props) => <Rings {...props} setShowModal={setShowModal}/>} />
+            <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
           </Switch>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Rings() {
+function Rings({setShowModal}) {
     return(
         <div>
             Rings page

@@ -1,6 +1,6 @@
 import React from "react";
 
-function FreeWeights() {
+function FreeWeights({setShowModal}) {
     return(
         <div>
              FreeWeights page
