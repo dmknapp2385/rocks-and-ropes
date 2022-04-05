@@ -15,7 +15,7 @@ function CalendarPage() {
     const [RowDateArrays, SetRowDateArrays] = useState([]);
 
     // variables for first day of the current calendar month
-    const year = '2022'
+    const year = ((new Date).getFullYear());
     const firstOfMonth = new Date(`${month} 1, ${year}`);
     const day = firstOfMonth.getDay();
     const lastOfMonth = new Date(2022, firstOfMonth.getMonth(), 0)
