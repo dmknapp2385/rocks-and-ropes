@@ -7,6 +7,7 @@ function CalendarPage() {
     const montharray= ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const today = new Date();
     let currentMonth = montharray[today.getMonth()];
+    const currentMonthNumb = today.getMonth();
 
     //component reload for dropdown button
     const [month, setMonth] = useState(currentMonth);
@@ -15,7 +16,7 @@ function CalendarPage() {
     const [RowDateArrays, SetRowDateArrays] = useState([]);
 
     // variables for first day of the current calendar month
-    const year = ((new Date).getFullYear());
+    const year = today.getFullYear();
     const firstOfMonth = new Date(`${month} 1, ${year}`);
     const day = firstOfMonth.getDay();
     const lastOfMonth = new Date(2022, firstOfMonth.getMonth(), 0)
@@ -25,23 +26,22 @@ function CalendarPage() {
     useEffect(() => {
         //returns last day of current month
         function getLastDAyOfMonth () {
-            return new Date(2022, (firstOfMonth.getMonth() + 1), 0).getDate();
+            return new Date(2022, (currentMonthNumb + 1), 0).getDate();
         }
 
         //gets the array of dates for the first row in the calendar based on the month selected and the year
         function getFirstcolArray() {
-            let firstColArray = [1];
+            let firstColArray = [{month: currentMonthNumb, day: 1}];
             for(let i=0; i<day; i++) {
-                firstColArray.unshift(prevDay-i)
+                firstColArray.unshift({month: (currentMonthNumb -1), day: (prevDay-i)})
             }
             for(let i=1; i <= (6-day); i++){
-                firstColArray.push(1+i)
+                firstColArray.push({month: currentMonthNumb, day: 1+i})
             }
             return firstColArray;
         }
 
         //function to create arrays for the rows 1 through 6
-
         let sunday = 7- day;
         //constant to add to start of next month
         let k = 1;
@@ -51,24 +51,22 @@ function CalendarPage() {
             let rowArray = []
             for (let j=1; j<=7; j++) {
                 if(sunday + j > lastDay) {
-                    rowArray.push(k)
+                    rowArray.push({month: (currentMonthNumb + 1), day : k })
                     k += 1;
 
                 } else{
-                    rowArray.push(sunday + j);
+                    rowArray.push({month: currentMonthNumb, day: sunday + j});
                 }
             }
             rowsArays.push(rowArray);
             sunday += 7;
         }
-        //instead set rowsArrays in useState function react
-        SetRowDateArrays(rowsArays);
         
-
+        SetRowDateArrays(rowsArays);
     }, [month])
     
     // need to get window size to condiationally render smaller views for <700px
-
+    console.log(RowDateArrays)
   return (
     <Container fluid className="mx-auto">
         <h2>My WorkOut Calendar</h2>
@@ -101,12 +99,12 @@ function CalendarPage() {
             <Col style={{borderRight: 'solid'}} xs={1}>Friday</Col>
             <Col style={{borderRight: 'solid'}} xs={1}>Saturday</Col>
         </Row>
-        {RowDateArrays.map((rowArray)=>(
-            <Row style={{border: 'solid', height: '100px'}}>
-                {rowArray.map((date)=>(
-                    <Col xs={1} className="text-justify" style={{borderRight:'solid'}}>
+        {RowDateArrays.map((rowArray, index)=>(
+            <Row key={index} style={{border: 'solid', height: '100px'}}>
+                {rowArray.map((dateobj)=>(
+                    <Col key={`${dateobj.month} / ${dateobj.day}`} xs={1} className="text-justify" style={{borderRight:'solid'}}>
                         <ul style={{listStyleType:'none'}}>
-                            <li className="text-right">{date}</li>
+                            <li className="text-right">{dateobj.day}</li>
                         </ul>
                     </Col>
                 ))}
