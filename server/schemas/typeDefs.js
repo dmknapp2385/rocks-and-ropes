@@ -13,13 +13,7 @@ type User {
   _id: ID
   username: String
   email: String
-  calendar: [Calendar]
-}
-
-type Calendar {
-  _id: ID
-  day: String
-  activity: [Activity]
+  activities: [Activity]
 }
 
 type Activity {
@@ -46,7 +40,7 @@ input ActivityInput {
   note: String
   sets: Int
   reps: Int
-  time: String
+  length: String
   link: String
 }
 

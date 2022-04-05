@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Activity } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -56,14 +56,15 @@ const resolvers = {
       },
       addActivity: async(parent, args, context) => {
         if(context.user){
+
           const activity = await Activity.create(args.input)
-          
-          const updatedCalendar = await Calendar.findOneAndUpdate(
-            { _id:  args.id},
-            { $addToSet: { activity: activity._id } },
+
+          const updatedUser = await User.findOneAndUpdate (
+            { _id: context._id},
+            { $addToSet: { activities: activity._id } },
             { new: true, runValidators: true }
           );
-          return updatedCalendar;
+          return updatedUser;
         }
         throw new AuthenticationError('You need to be logged in!');
       },
