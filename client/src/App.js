@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import Homepage from './Pages/Home';
 import Upstairs from './Pages/Upstairs';
 import Weights from './Pages/Weights';
@@ -43,6 +45,8 @@ function App() {
             <Route exact path='/weights/trx' component={Trx} />
             <Route exact path='/weights/rings' component={Rings} />
             <Route exact path='/weights/free' component={FreeWeights} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
           </Switch>
         </Router>
     </ApolloProvider>
