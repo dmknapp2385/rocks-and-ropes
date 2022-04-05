@@ -1,3 +1,5 @@
-// const User = require('./User');
+const User = require('./User');
+const FreeWeight = require('./FreeWeight');
+const Calendar = require('./Calendar');
 
-// module.exports = { User };
+module.exports = { User, FreeWeight, Calendar };
