@@ -35,6 +35,10 @@ const client = new ApolloClient({
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [activity, setActivity] = useState('');
+  const[link, setlink] = useState('');
+
+  console.log(showModal, activity, link);
 
   return (
     <ApolloProvider client={client}>
@@ -42,12 +46,12 @@ function App() {
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
-            <Route exact path='/upstairs' render={(props) => <Upstairs {...props} setShowModal={setShowModal}/>}/>
+            <Route exact path='/upstairs' render={(props) => <Upstairs {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>}/>
             <Route exact path='/weights' component={Weights} />
             <Route exact path='/calendar' component={CalendarPage} />
-            <Route exact path='/weights/trx' render={(props) => <Trx {...props} setShowModal={setShowModal}/>} />
-            <Route exact path='/weights/rings' render={(props) => <Rings {...props} setShowModal={setShowModal}/>} />
-            <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal}/>} />
+            <Route exact path='/weights/trx' render={(props) => <Trx {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
+            <Route exact path='/weights/rings' render={(props) => <Rings {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
+            <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
           </Switch>
