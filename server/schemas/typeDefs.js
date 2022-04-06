@@ -47,7 +47,7 @@ input ActivityInput {
 }
 
   type Query {
-    me: User
+    me(day:String): User
     freeWeights: [FreeWeight]
     freeWeight(_id: ID!): FreeWeight
     activities: [Activity]

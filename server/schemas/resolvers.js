@@ -1,14 +1,15 @@
-const { User, Activity } = require('../models');
+const { User, Activity, FreeWeight } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
+    me: async (parent, {day}, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .populate({
             path: 'savedActivities',
+            // match: {day: day},
             select: '-__v'
           })
           .select('-__v -password')
