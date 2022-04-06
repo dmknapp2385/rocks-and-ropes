@@ -102,11 +102,13 @@ const resolvers = {
         
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-
           { $pull: { savedActivities: { activityId: args.activityId } } },
-
           { new: true }
         )
+        .populate({
+          path: 'savedActivities',
+          select: '-__v'
+        })
 
         return updatedUser;
       }
