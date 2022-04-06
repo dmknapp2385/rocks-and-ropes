@@ -30,6 +30,6 @@ const activitySchema = new Schema({
   }
 });
 
-// const Activity = model('Activity', activitySchema);
+const Activity = model('Activity', activitySchema);
 
-module.exports = activitySchema;
+module.exports = Activity;

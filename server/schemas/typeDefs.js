@@ -17,7 +17,7 @@ type User {
 }
 
 type Activity {
-  _id: ID!
+  _id: ID
   day: String
   length: String
   name: String
@@ -59,7 +59,7 @@ input ActivityInput {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addActivity(input: ActivityInput): User
-    removeActivity(_id: ID!): User
+    removeActivity(activityId: ID!): User
   }
 `;
 
