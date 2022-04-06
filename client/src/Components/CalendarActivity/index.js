@@ -14,7 +14,7 @@ const CalendarActivity = ({ activity }) => {
     }
 
     return (
-        <div className="border border-dark m-2 text-center">
+        <div className="border border-dark rounded m-2 text-center">
             <DetailModal showDetailModal = {showDetailModal} setShowDetailModal = {setShowDetailModal} activity = {activity}/>
             <div>
                 <p className="font-weight-bold">{activity.name}</p>
