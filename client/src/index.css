@@ -16,3 +16,13 @@ h6 {
   font-style: italic;
 }
 
+
+a {
+  text-align: none;
+  color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #C2E5D3; 
+}
