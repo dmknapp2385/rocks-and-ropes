@@ -39,12 +39,10 @@ function App() {
   const [activity, setActivity] = useState('');
   const[link, setlink] = useState('');
 
-  console.log(showModal, activity, link);
-
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <AddModal />
+      <AddModal setShowModal={setShowModal}  showModal={showModal} activity={activity} link={link} />
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
@@ -58,6 +56,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
           </Switch>
         </Router>
+        
     </ApolloProvider>
   );
 }
