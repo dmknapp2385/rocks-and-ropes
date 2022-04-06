@@ -21,7 +21,12 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-    savedActivities: [activitySchema]
+    savedActivities: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Activity"
+      }
+    ]
   }
 );
 
