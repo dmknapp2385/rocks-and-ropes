@@ -23,13 +23,9 @@ const activitySchema = new Schema({
   },
   link: {
     type: String
-  },
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: "User"
   }
 });
 
-const Activity = model('Activity', activitySchema);
+// const Activity = model('Activity', activitySchema);
 
-module.exports = Activity;
+module.exports = activitySchema;

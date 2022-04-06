@@ -12,7 +12,7 @@ import Calendar from './Components/Calendar';
 import FreeWeights from "./Pages/FreeWeights";
 import Rings from "./Pages/Rings";
 import Trx from "./Pages/Trx";
-
+import AddModal from './Components/AddModal';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -36,6 +36,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar />
+      <AddModal />
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
