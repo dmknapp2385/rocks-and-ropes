@@ -78,13 +78,17 @@ const resolvers = {
     addActivity: async (parent, { input }, context) => {
       if (context.user) {
 
-        // const activity = await Activity.create(input)
+        const activity = await Activity.create(input)
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedActivities: input } },
+          { $addToSet: { savedActivities: activity._id } },
           { new: true, runValidators: true }
         )
+        .populate({
+          path: 'savedActivities',
+          select: '-__v'
+        })
 
         return updatedUser;
       }
@@ -98,11 +102,13 @@ const resolvers = {
         
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-
           { $pull: { savedActivities: { activityId: args.activityId } } },
-
           { new: true }
         )
+        .populate({
+          path: 'savedActivities',
+          select: '-__v'
+        })
 
         return updatedUser;
       }
