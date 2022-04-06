@@ -96,6 +96,9 @@ const resolvers = {
     removeActivity: async (parent, args, context) => {
       if (context.user) {
         console.log(args);
+
+        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
+        
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { savedActivities: { activityId: args.activityId } } },
@@ -105,8 +108,6 @@ const resolvers = {
           path: 'savedActivities',
           select: '-__v'
         })
-
-        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
 
         return updatedUser;
       }
