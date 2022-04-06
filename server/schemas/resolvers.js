@@ -26,6 +26,15 @@ const resolvers = {
       })
       return activityData;
     },
+    activitiesByDay: async (parent, args) => {
+      const activityData = await Activity.find({})
+      .where({userId: args.userId, day: args.day })
+      .populate({
+        path: 'userId',
+        select: '-__v'
+      })
+      return activityData;
+    },
     activity: async (parent, { _id }) => {
       const activityData = await Activity.findOne({ _id })
       .populate({
@@ -70,13 +79,17 @@ const resolvers = {
     addActivity: async (parent, { input }, context) => {
       if (context.user) {
 
-        // const activity = await Activity.create(input)
+        const activity = await Activity.create(input)
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedActivities: input } },
+          { $addToSet: { savedActivities: activity._id } },
           { new: true, runValidators: true }
         )
+        .populate({
+          path: 'savedActivities',
+          select: '-__v'
+        })
 
         return updatedUser;
       }
@@ -84,11 +97,19 @@ const resolvers = {
     },
     removeActivity: async (parent, args, context) => {
       if (context.user) {
+        console.log(args);
+
+        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
+        
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { _id: args._id } } },
+          { $pull: { savedActivities: { activityId: args.activityId } } },
           { new: true }
         )
+        .populate({
+          path: 'savedActivities',
+          select: '-__v'
+        })
 
         return updatedUser;
       }
