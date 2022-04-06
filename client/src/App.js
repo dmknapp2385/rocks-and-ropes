@@ -13,6 +13,7 @@ import FreeWeights from "./Pages/FreeWeights";
 import Rings from "./Pages/Rings";
 import Trx from "./Pages/Trx";
 import AddModal from './Components/AddModal';
+import Week from './Components/Week';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -48,6 +49,7 @@ function App() {
             <Route exact path='/weights/free' component={FreeWeights} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path='/week' component={Week} />
           </Switch>
         </Router>
     </ApolloProvider>

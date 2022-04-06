@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-//import { useMutation } from '@apollo/client';
-//import { LOGIN_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //const [login, { error }] = useMutation(LOGIN_USER);
+    const [login, { error }] = useMutation(LOGIN_USER);
 
     const handleFormChange = (event) => {
         const { name, value } = event.target;
@@ -23,11 +23,11 @@ const Login = () => {
         event.preventDefault();
 
         try {
-            // const { data } = await login({
-            //     variables: { email: email, password: password }
-            // });
+            const { data } = await login({
+                variables: { email: email, password: password }
+            });
 
-            //Auth.login(data.login.token);
+            Auth.login(data.login.token);
             setEmail("");
             setPassword("");
         } catch (e) {
@@ -69,7 +69,7 @@ const Login = () => {
                     </div>
                 </div>
             </form>
-            {/*error && <div>Login failed</div>*/}
+            {error && <div>Login failed</div>}
 
         </div>
     );
