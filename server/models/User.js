@@ -21,6 +21,7 @@ const userSchema = new Schema(
       minlength: 5
     },
     savedActivities: [
+      //Changes
       {
         type: Schema.Types.ObjectId,
         ref: "Activity"

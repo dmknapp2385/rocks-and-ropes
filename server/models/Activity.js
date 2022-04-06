@@ -24,6 +24,7 @@ const activitySchema = new Schema({
   link: {
     type: String
   },
+  //Changes
   userId: {
     type: Schema.Types.ObjectId,
     ref: "User"
