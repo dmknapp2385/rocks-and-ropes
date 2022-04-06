@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Activity =  require('./Activity')
 
 const userSchema = new Schema(
   {
@@ -21,7 +22,6 @@ const userSchema = new Schema(
       minlength: 5
     },
     savedActivities: [
-      //Changes
       {
         type: Schema.Types.ObjectId,
         ref: "Activity"
