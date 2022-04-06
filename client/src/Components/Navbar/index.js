@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Nav, Navbar as RNavbar } from 'react-bootstrap';
-
 // import Auth from '../../utils/auth';
 
 function Navbar(props) {

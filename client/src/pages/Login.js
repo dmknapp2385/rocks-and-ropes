@@ -22,17 +22,17 @@ const Login = () => {
     const handleFormSubmit = async event => {
         event.preventDefault();
 
-        try {
-            // const { data } = await login({
-            //     variables: { email: email, password: password }
-            // });
+        // try {
+        //     const { data } = await login({
+        //         variables: { email: email, password: password }
+        //     });
 
-            //Auth.login(data.login.token);
-            setEmail("");
-            setPassword("");
-        } catch (e) {
-            console.error(e);
-        }
+        //     Auth.login(data.login.token);
+        //     setEmail("");
+        //     setPassword("");
+        // } catch (e) {
+        //     console.error(e);
+        // }
     }
 
     return (
