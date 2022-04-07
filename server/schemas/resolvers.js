@@ -19,27 +19,27 @@ const resolvers = {
     },
     activities: async (parent, args) => {
       const activityData = await Activity.find({})
-      .populate({
-        path: 'userId',
-        select: '-__v'
-      })
+        .populate({
+          path: 'userId',
+          select: '-__v'
+        })
       return activityData;
     },
     activitiesByDay: async (parent, args) => {
       const activityData = await Activity.find({})
-      .where({userId: args.userId, day: args.day })
-      .populate({
-        path: 'userId',
-        select: '-__v'
-      })
+        .where({ userId: args.userId, day: args.day })
+        .populate({
+          path: 'userId',
+          select: '-__v'
+        })
       return activityData;
     },
     activity: async (parent, { _id }) => {
       const activityData = await Activity.findOne({ _id })
-      .populate({
-        path: 'userId',
-        select: '-__v'
-      })
+        .populate({
+          path: 'userId',
+          select: '-__v'
+        })
       return activityData;
     },
     freeWeights: async (parent, args) => {
@@ -90,10 +90,10 @@ const resolvers = {
           { $addToSet: { savedActivities: activity._id } },
           { new: true, runValidators: true }
         )
-        .populate({
-          path: 'savedActivities',
-          select: '-__v'
-        })
+          .populate({
+            path: 'savedActivities',
+            select: '-__v'
+          })
 
         console.log(updatedUser);
 
@@ -115,10 +115,28 @@ const resolvers = {
           { $pull: { savedActivities: activityId } },
           { new: true }
         )
-        .populate({
-          path: 'savedActivities',
-          select: '-__v'
-        })
+          .populate({
+            path: 'savedActivities',
+            select: '-__v'
+          })
+
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeAllActivities: async (parent, args, context) => {
+      if (context.user) {
+        console.log(args);
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $set: { savedActivities: [] } },
+          { new: true }
+        )
+          .populate({
+            path: 'savedActivities',
+            select: '-__v'
+          })
 
         return updatedUser;
       }
