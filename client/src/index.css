@@ -1,6 +1,12 @@
 body {
   font-family: 'Rubik', sans-serif;
 }
+:root {
+  --primary: #9d9f9e;
+  --secondary: #8a3e4a;
+  --tertiary: #a2e64f;
+  --light: #fae3b4;
+}
 
 h1,
 h2,
