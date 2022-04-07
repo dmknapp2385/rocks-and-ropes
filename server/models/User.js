@@ -24,7 +24,7 @@ const userSchema = new Schema(
     savedActivities: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Activity"
+        ref: 'Activity'
       }
     ]
   }
