@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const QUERY_ME = gql`
 {
-    me{
+    me {
         _id
         username
         email
@@ -75,3 +75,26 @@ export const QUERY_ACTIVITY_BY_DAY = gql`
       }
 }`
 
+export const QUERY_FREEWEIGHTS = gql`
+{
+    query FreeWeights {
+        freeWeights {
+          _id
+          name
+          description
+          image
+        }
+    }
+}`
+
+export const QUERY_FREEWEIGHT = gql`
+{
+    query FreeWeight($id: ID!) {
+        freeWeight(_id: $id) {
+          _id
+          name
+          description
+          image
+        }
+    }
+}`
