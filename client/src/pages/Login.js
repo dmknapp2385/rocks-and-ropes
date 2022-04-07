@@ -67,6 +67,8 @@ const Login = () => {
                             Submit
                         </button>
                     </div>
+                    <p>Don't have an account? </p>
+                    <a src="/signup">Sign up</a>
                 </div>
             </form>
             {error && <div>Login failed</div>}
