@@ -38,7 +38,6 @@ export const QUERY_ACTIVITIES = gql`
 }`
 
 export const QUERY_ACTIVITY = gql`
-{
     query activity($id: ID!) {
         activity(id: $id) {
             _id
@@ -54,10 +53,9 @@ export const QUERY_ACTIVITY = gql`
             } 
         }
     }
-}`
+`
 
 export const QUERY_ACTIVITY_BY_DAY = gql`
-{
     query ActivitiesByDay($userId: String, $day: String) {
         activitiesByDay(userId: $userId, day: $day) {
           _id
@@ -73,5 +71,5 @@ export const QUERY_ACTIVITY_BY_DAY = gql`
           }
         }
       }
-}`
+`
 

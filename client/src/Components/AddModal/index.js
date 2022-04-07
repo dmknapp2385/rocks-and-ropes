@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useMutation } from 'react';
 import { Container, Row, Col, Modal, Form, Button, Dropdown } from 'react-bootstrap';
+import { ADD_ACTIVITY } from '../../utils/mutations';
 
 
 function AddModal(props) {
   const {showModal, setShowModal, activity, link} = props
   const [formData, setFormData] = useState({day:'', length:'', reps:'', sets:'', note:''})
-  //use mutation here for activity submit
+  // const [addActivity, { error }] = useMutation(ADD_ACTIVITY);
+
+  //form event handlers
   const handleClose = () => setShowModal(false);
   const handleClick= (name, value) => {setFormData({...formData, [name]:value})};
   const handleChange = (e) => {
@@ -13,10 +16,17 @@ function AddModal(props) {
     setFormData({...formData, [name]:value})
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async() => {
     const input = {...formData, name:`${activity}`, link:`${link}`};
-    // add mutation here
+    console.log(input)
+    // try {
+    //   const { data } = await addActivity({
+    //     variables: { input: input}
+    //   });
+
+    // } catch (e) {
+    //   console.error(e);
+    // }
   }
   
   return (
