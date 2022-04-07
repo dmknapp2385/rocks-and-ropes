@@ -89,7 +89,7 @@ function CalendarPage() {
                 <Dropdown.Item onClick={()=>setMonth('November')}>November</Dropdown.Item>
                 <Dropdown.Item onClick={()=>setMonth('December')}>December</Dropdown.Item>
             </Dropdown.Menu>
-            </Dropdown>
+        </Dropdown>
         <Row className="mt-5 text-center">
             <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Sunday</Col>
             <Col style={{borderRight: 'solid', borderTop: 'solid'}} xs={1}>Monday</Col>
