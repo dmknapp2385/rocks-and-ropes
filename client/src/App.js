@@ -13,7 +13,7 @@ import Trx from "./Pages/Trx";
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import AddModal from './Components/AddModal';
-
+import Week from './Components/Week';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -54,6 +54,7 @@ function App() {
             <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path='/week' component={Week} />
           </Switch>
         </Router>
         
