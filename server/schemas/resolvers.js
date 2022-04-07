@@ -101,17 +101,18 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeActivity: async (parent, args, context) => {
+    removeActivity: async (parent, { activityId }, context) => {
       if (context.user) {
-        console.log(args);
+        console.log(context.user);
 
-        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
+        const deletedActivity = await Activity.findOneAndDelete({ _id: activityId });
 
         console.log(deletedActivity);
-        
+        console.log(activityId);
+
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { _id: args.activityId } } },
+          { $pull: { savedActivities: activityId } },
           { new: true }
         )
         .populate({
