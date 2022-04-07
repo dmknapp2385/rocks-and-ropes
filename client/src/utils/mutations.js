@@ -72,4 +72,28 @@ export const REMOVE_ACTIVITY = gql`
     }
 }`
 
+export const REMOVE_ALL_ACTIVITIES = gql`
+{
+    mutation RemoveAllActivities($userId: ID!) {
+        removeAllActivities(userId: $userId) {
+          _id
+          username
+          email
+          savedActivities {
+            _id
+            day
+            name
+            length
+            note
+            sets
+            reps
+            link
+            userId {
+              _id
+            }
+          }
+        }
+      }
+}`
+
 
