@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-//import { ADD_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Button, } from 'react-bootstrap';
 
 const Signup = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [addUser, { error }] = useMutation(ADD_USER);
+    const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleFormChange = event => {
         const {name, value} = event.target;
@@ -25,20 +26,20 @@ const Signup = () => {
     const handleFormSubmit = async event => {
         event.preventDefault();
 
-        // try {
-        //     const { data } = await addUser({
-        //       variables: { username: username, email: email, password: password }
-        //     });
+        try {
+            const { data } = await addUser({
+              variables: { username: username, email: email, password: password }
+            });
 
-        //     Auth.login(data.addUser.token);
+            Auth.login(data.addUser.token);
 
-        //     setUsername("");
-        //     setPassword("");
-        //     setEmail("");
+            setUsername("");
+            setPassword("");
+            setEmail("");
 
-        // } catch (e) {
-        //     console.error(e);
-        // }
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (
@@ -82,9 +83,13 @@ const Signup = () => {
                             Submit
                         </button>
                     </div>
+                    <div className = 'd-flex justify-content-start align-items-center' style={{width: '65%', paddingTop: '50px'}}>
+                        <p className="mr-4 text-center">Already have an account? </p>
+                        <Button variant="secondary" href="/login">Login</Button>
+                    </div>
                 </div>
             </form>
-            {/* {error && <div>Sign up failed</div>} */}
+            {error && <div>Sign up failed</div>}
 
         </div>
     );

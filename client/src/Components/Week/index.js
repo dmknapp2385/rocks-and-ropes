@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Day from "../Day";
 import { Container, Row } from 'react-bootstrap';
+import { QUERY_ACTIVITY_BY_DAY } from '../../utils/queries';
 
 const Week = () => {
     const days = ["Sunday", 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "Saturday"];
     const [activities, setActivities] = useState([]);
-
+    const [activitiesByDay, {error}] = Query(QUERY_ACTIVITY_BY_DAY);
     useEffect(() => {
         getActivityData();
     },[]);
@@ -21,6 +22,7 @@ const Week = () => {
     [{ _id: 7, day: 'Friday', length: '60', name: "push-ups", note: "bleh", sets: 8, reps: 9, link: "link", userId: 1 }], []];
        //end testing code    
        //TODO: put activity queries here!
+       activitiesByDay("Monday");
        setActivities(data);
     };
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
-
+import { Button, } from 'react-bootstrap';
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -38,12 +38,12 @@ const Login = () => {
     return (
         <div className="d-flex flex-row justify-content-center" >
             <form onSubmit={handleFormSubmit} style={{ width: "50%" }}>
-                <div className="d-flex flex-column align-items-start pt-5" style={{width: "100%"}}>
+                <div className="d-flex flex-column align-items-start pt-5" style={{ width: "100%" }}>
                     <h2 className="h2">Welcome back!</h2>
-                    <h3 className = "h3">Sign into your account.</h3>
+                    <h3 className="h3">Sign into your account.</h3>
                     <label htmlFor="email">Email:</label>
                     <input className="mr-5 mb-5"
-                        style={{width: "70%"}}
+                        style={{ width: "70%" }}
                         name="email"
                         onChange={handleFormChange}
                         type="email"
@@ -53,7 +53,7 @@ const Login = () => {
                     />
                     <label htmlFor="password">Password:</label>
                     <input className="mr-5 mb-5"
-                        style={{width: "70%"}}
+                        style={{ width: "70%" }}
                         name="password"
                         onChange={handleFormChange}
                         type="password"
@@ -62,13 +62,15 @@ const Login = () => {
                         placeholder='*******'
                         value={password}
                     />
-                    <div className="d-flex justify-content-center" style={{width: "65%"}}>
+                    <div className="d-flex justify-content-center" style={{ width: "65%" }}>
                         <button type='submit' className="ml-5 p-2 rounded border-dark shadow">
                             Submit
                         </button>
                     </div>
-                    <p>Don't have an account? </p>
-                    <a src="/signup">Sign up</a>
+                    <div className = 'd-flex justify-content-start align-items-center' style={{width: '65%', paddingTop: '50px'}}>
+                        <p className="mr-4 text-center">Don't have an account? </p>
+                        <Button variant="secondary" href="/signup">Sign up</Button>
+                    </div>
                 </div>
             </form>
             {error && <div>Login failed</div>}
