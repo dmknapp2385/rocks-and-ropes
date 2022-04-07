@@ -138,6 +138,10 @@ const resolvers = {
             select: '-__v'
           })
 
+        const updatedActivities = await Activity.deleteMany(
+          {userId: updatedUser._id}
+        )
+
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
