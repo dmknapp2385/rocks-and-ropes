@@ -4,12 +4,11 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, {day}, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .populate({
             path: 'savedActivities',
-            // match: {day: day},
             select: '-__v'
           })
           .select('-__v -password')
@@ -79,9 +78,14 @@ const resolvers = {
     addActivity: async (parent, { input }, context) => {
       if (context.user) {
 
+        console.log(context.user);
+        console.log(input);
+
         const activity = await Activity.create(input)
 
-        const updatedUser = await User.findOneAndUpdate(
+        console.log(activity);
+
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedActivities: activity._id } },
           { new: true, runValidators: true }
@@ -90,6 +94,8 @@ const resolvers = {
           path: 'savedActivities',
           select: '-__v'
         })
+
+        console.log(updatedUser);
 
         return updatedUser;
       }
@@ -100,10 +106,12 @@ const resolvers = {
         console.log(args);
 
         const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
+
+        console.log(deletedActivity);
         
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { activityId: args.activityId } } },
+          { $pull: { savedActivities: { _id: args.activityId } } },
           { new: true }
         )
         .populate({
