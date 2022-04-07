@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 import DetailModal from '../DetailModal';
-const CalendarActivity = ({ activity }) => {
+const CalendarActivity = ({ activity, setActivities }) => {
     const [showDetailModal , setShowDetailModal] = useState(false);
     const handleDeleteClick = (event) => {
         //delete activity call here
+        //update activities state
     }
 
     const handleDetailClick = (event) => {
