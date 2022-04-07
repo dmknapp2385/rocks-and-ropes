@@ -58,5 +58,20 @@ export const QUERY_ACTIVITY = gql`
 
 export const QUERY_ACTIVITY_BY_DAY = gql`
 {
-    
+    query ActivitiesByDay($userId: String, $day: String) {
+        activitiesByDay(userId: $userId, day: $day) {
+          _id
+          day
+          length
+          name
+          note
+          sets
+          reps
+          link
+          userId {
+            username
+          }
+        }
+      }
 }`
+
