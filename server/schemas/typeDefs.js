@@ -60,6 +60,7 @@ input ActivityInput {
     addUser(username: String!, email: String!, password: String!): Auth
     addActivity(input: ActivityInput): User
     removeActivity(activityId: ID!): User
+    removeAllActivities(userId: ID!): User
   }
 `;
 
