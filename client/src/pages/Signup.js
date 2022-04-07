@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-//import { useMutation } from '@apollo/client';
-//import { ADD_USER } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //const [addUser, { error }] = useMutation(ADD_USER);
+    // const [addUser, { error }] = useMutation(ADD_USER);
 
     const handleFormChange = event => {
-        const [name, value] = event.target;
+        const {name, value} = event.target;
         if (name === 'username') {
             setUsername(value);
         }
@@ -25,20 +25,20 @@ const Signup = () => {
     const handleFormSubmit = async event => {
         event.preventDefault();
 
-        try {
-            // const { data } = await addUser({
-            //   variables: { username: username, email: email, password: password }
-            // });
+        // try {
+        //     const { data } = await addUser({
+        //       variables: { username: username, email: email, password: password }
+        //     });
 
-            //Auth.login(data.addUser.token);\
+        //     Auth.login(data.addUser.token);
 
-            setUsername("");
-            setPassword("");
-            setEmail("");
+        //     setUsername("");
+        //     setPassword("");
+        //     setEmail("");
 
-        } catch (e) {
-            console.error(e);
-        }
+        // } catch (e) {
+        //     console.error(e);
+        // }
     }
 
     return (
@@ -84,7 +84,7 @@ const Signup = () => {
                     </div>
                 </div>
             </form>
-            {/*error && <div>Sign up failed</div>*/}
+            {/* {error && <div>Sign up failed</div>} */}
 
         </div>
     );

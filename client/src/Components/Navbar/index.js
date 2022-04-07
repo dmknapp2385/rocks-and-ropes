@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar as RNavbar } from 'react-bootstrap';
-// import Auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 function Navbar(props) {
     return (
@@ -22,16 +22,16 @@ function Navbar(props) {
                 Weights
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
-              {/* {Auth.loggedIn() ? (
+              {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/calendar'>
+                  <Nav.Link href='/week'>
                     See Your Exercises
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-              )} */}
+                <Nav.Link href='login'>Login/Sign Up</Nav.Link>
+              )}
             </Nav>
           </RNavbar.Collapse>
         </Container>

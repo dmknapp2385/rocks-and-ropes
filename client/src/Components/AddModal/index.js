@@ -4,9 +4,21 @@ import { Container, Row, Col, Modal, Form, Button, Dropdown } from 'react-bootst
 
 function AddModal(props) {
   const {showModal, setShowModal, activity, link} = props
-
+  const [formData, setFormData] = useState({day:'', length:'', reps:'', sets:'', note:''})
+  //use mutation here for activity submit
   const handleClose = () => setShowModal(false);
+  const handleClick= (name, value) => {setFormData({...formData, [name]:value})};
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]:value})
+  }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const input = {...formData, name:`${activity}`, link:`${link}`};
+    // add mutation here
+  }
+  
   return (
     <>
       <Modal show={showModal} onHide={handleClose}>
@@ -42,21 +54,21 @@ function AddModal(props) {
               />
             </Form.Group> */}
             <Container className="mb-3">
-              <Row className='mb-3 text-center'>
+            <Row className='mb-3 text-center'>
                 {/* conditionally render this when opened from the add to calendar button from pages */}
               <Dropdown style={{width:'150px'}}>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      Day
+                      {formData.day === '' ? 'Day': `${formData.day}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                      <Dropdown.Item href="#/action-1" active>Monday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">Tuesday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Wednesday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">Thursday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">Friday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">Saturday</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">Sunday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Monday')}>Monday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Tuesday')} >Tuesday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Wednesday')} >Wednesday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Thursday')} >Thursday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Friday')} >Friday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Saturday')} >Saturday</Dropdown.Item>
+                      <Dropdown.Item onClick={()=> handleClick('day', 'Sunday')} >Sunday</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
               </Row>
@@ -64,14 +76,14 @@ function AddModal(props) {
               <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      Length
+                      {formData.length === '' ? 'Length':`${formData.length}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                      <Dropdown.Item href="#/action-1" active>30Mins</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">60Mins</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">90Mins</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">120Mins</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('length', '30Mins')}>30Mins</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('length', '60Mins')} >60Mins</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('length', '90Mins')}>90Mins</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('length', '120Mins')}>120Mins</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
@@ -79,14 +91,14 @@ function AddModal(props) {
                 <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      Sets
+                      {formData.sets === ''? 'Sets': `${formData.sets}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                      <Dropdown.Item href="#/action-1" active>1</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">4</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('sets', 1)}>1</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('sets', 2)}>2</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('sets', 3)}>3</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('sets', 4)}>4</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
@@ -94,15 +106,15 @@ function AddModal(props) {
 
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      Reps
+                      {formData.reps === ''? 'Reps': `${formData.reps}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                      <Dropdown.Item href="#/action-1" active>5
+                      <Dropdown.Item onClick={() => handleClick ('reps', 5)}>5
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">10</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">12</Dropdown.Item>
-                      <Dropdown.Item href="#/action-4">15</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('reps', 10)}>10</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('reps', 12)}>12</Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('reps', 15)}>15</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
@@ -115,7 +127,7 @@ function AddModal(props) {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>note</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} />
             </Form.Group>
           </Form>
 
@@ -125,7 +137,7 @@ function AddModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
