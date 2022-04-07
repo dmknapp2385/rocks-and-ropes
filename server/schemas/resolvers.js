@@ -4,12 +4,11 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, { day }, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .populate({
             path: 'savedActivities',
-            // match: {day: day},
             select: '-__v'
           })
           .select('-__v -password')
@@ -79,9 +78,14 @@ const resolvers = {
     addActivity: async (parent, { input }, context) => {
       if (context.user) {
 
+        console.log(context.user);
+        console.log(input);
+
         const activity = await Activity.create(input)
 
-        const updatedUser = await User.findOneAndUpdate(
+        console.log(activity);
+
+        const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $addToSet: { savedActivities: activity._id } },
           { new: true, runValidators: true }
@@ -91,19 +95,24 @@ const resolvers = {
             select: '-__v'
           })
 
+        console.log(updatedUser);
+
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeActivity: async (parent, args, context) => {
+    removeActivity: async (parent, { activityId }, context) => {
       if (context.user) {
-        console.log(args);
+        console.log(context.user);
 
-        const deletedActivity = await Activity.findOneAndDelete({ _id: args.activityId });
+        const deletedActivity = await Activity.findOneAndDelete({ _id: activityId });
+
+        console.log(deletedActivity);
+        console.log(activityId);
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedActivities: { activityId: args.activityId } } },
+          { $pull: { savedActivities: activityId } },
           { new: true }
         )
           .populate({
