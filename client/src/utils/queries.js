@@ -52,12 +52,7 @@ export const QUERY_ACTIVITY = gql`
               _id
             } 
         }
-<<<<<<< HEAD
-    }
-`
-=======
     }`
->>>>>>> 473542baca3f5c54dad61bc555c71ec3040cf4c7
 
 export const QUERY_ACTIVITY_BY_DAY = gql`
     query ActivitiesByDay($userId: String, $day: String) {
@@ -74,10 +69,6 @@ export const QUERY_ACTIVITY_BY_DAY = gql`
             username
           }
         }
-<<<<<<< HEAD
-      }
-`
-=======
       }`
 
 export const QUERY_FREEWEIGHTS = gql`
@@ -89,7 +80,6 @@ export const QUERY_FREEWEIGHTS = gql`
           image
         }
     }`
->>>>>>> 473542baca3f5c54dad61bc555c71ec3040cf4c7
 
 export const QUERY_FREEWEIGHT = gql`
     query FreeWeight($id: ID!) {

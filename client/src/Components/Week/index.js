@@ -1,34 +1,51 @@
 import React, {useEffect, useState} from "react";
 import Day from "../Day";
 import { Container, Row } from 'react-bootstrap';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ACTIVITY_BY_DAY } from '../../utils/queries';
+import { REMOVE_ALL_ACTIVITIES } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 const Week = () => {
+    if(!Auth.loggedIn()){
+        //redirect to the home page if not logged in
+        window.location.assign('/');
+    }
     const days = ["Sunday", 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "Saturday"];
     const [activities, setActivities] = useState([]);
-    const [activitiesByDay, {error}] = Query(QUERY_ACTIVITY_BY_DAY);
+    const userProfile = Auth.getProfile();
+    const [removeAllActivities, {error}] = useMutation(REMOVE_ALL_ACTIVITIES);
+    const useQueryMultiple = () => {
+        const res1 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[0]}});
+        const res2 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[1]}});
+        const res3 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[2]}});
+        const res4 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[3]}});
+        const res5 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[4]}});
+        const res6 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[5]}});
+        const res7 = useQuery(QUERY_ACTIVITY_BY_DAY, {variables: {userId: userProfile.data._id, day: days[6]}});
+        return [res1.data, res2.data, res3.data, res4.data, res5.data, res6.data, res7.data];
+      }
+
+      const dataArr = useQueryMultiple();
+      console.log(dataArr);
     useEffect(() => {
-        getActivityData();
+        setActivities(dataArr);
     },[]);
 
-    const getActivityData = async () => {
-        //the following is mock data that i'm using to test. it will be removed later.
-       const data = [[{ _id: 1, day: 'Sunday', length: '30', name: "run", note: "fun", sets: 10, reps: 5, link: "link", userId: 1 },
-    { _id: 2, day: 'Sunday', length: '45', name: 'bench press', note: 'wow!', sets: 7, reps: 8, link: 'link', userId: 1 }], [],
-    [{ _id: 3, day: 'Tuesday', length: '60', name: "push-ups", note: "bleh", sets: 8, reps: 9, link: "link", userId: 1 }],
-    [{ _id: 4, day: 'Wednesday', length: '30', name: "run", note: "fun", sets: 10, reps: 5, link: "link", userId: 1 },
-    { _id: 5, day: 'Wednesday', length: '45', name: 'bench press', note: 'wow!', sets: 7, reps: 8, link: 'link', userId: 1 },
-    { _id: 6, day: 'Wednesday', length: '60', name: 'curl', note: 'yay!', sets: 12, reps: 15, link: 'link', userId: 1 }], [],
-    [{ _id: 7, day: 'Friday', length: '60', name: "push-ups", note: "bleh", sets: 8, reps: 9, link: "link", userId: 1 }], []];
-       //end testing code    
-       //TODO: put activity queries here!
-       activitiesByDay("Monday");
-       setActivities(data);
-    };
-
-    const handleClearClick = (event) => {
+    const handleClearClick = async(event) => {
         //clear all activities here!
+        try{
+            const { data } = await removeAllActivities({variables: {userId: userProfile.data._id} });
+
+            if (error) {
+              throw new Error('something went wrong!');
+            }
+        }
+        catch(e){
+            console.log(e);
+        }
         //set activities state
+        setActivities([]);
     };
     return (
 
@@ -36,7 +53,7 @@ const Week = () => {
             <h2>Weekly Calendar</h2>
             <Row className="w-100 justify-content-center">
                 {days.map((day, i) => {
-                    return <Day day={day} activities={activities[i]} setActivities = {setActivities} key = {day}/>
+                    return <Day day={day} days = {days} activities={activities[i]} allActivities = {activities} setActivities = {setActivities} key = {day}/>
                 })}
             </Row>
             <button className = "m-2 rounded border border-dark" onClick={handleClearClick}>Clear Calendar</button>
