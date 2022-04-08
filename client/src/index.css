@@ -8,6 +8,15 @@ body {
   --tan: #fae3b4;
   --brown: #8b6342;
 }
+body {
+  background-color: var(--tan);
+  color: var(--red);
+}
+
+img {
+  border: 2px solid var(--green);
+  border-radius: 5px;
+}
 
 .background-grey {
   background-color: var(--grey);
@@ -27,6 +36,9 @@ body {
 
 .background-brown {
   background-color: var(--brown);
+}
+.text-green{
+  color: var(--green);
 }
 
 h1,
