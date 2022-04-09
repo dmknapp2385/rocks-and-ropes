@@ -3,6 +3,7 @@ body {
 }
 :root {
   --grey: #9d9f9e;
+  --dark-grey: #343a40;
   --red: #8a3e4a;
   --green: #a2e64f;
   --tan: #fae3b4;
@@ -53,6 +54,10 @@ h6 {
 .small {
   font-weight: 300;
   font-style: italic;
+}
+.btn-secondary:hover{
+  background-color: var(--green);
+  color: var(--dark-grey);
 }
 
 
