@@ -4,6 +4,7 @@ import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 import DetailModal from '../DetailModal';
 import { useMutation } from '@apollo/client';
 import { REMOVE_ACTIVITY } from '../../utils/mutations'
+
 const CalendarActivity = ({ activity, setActivities, activities, days}) => {
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [removeActivity, { error }] = useMutation(REMOVE_ACTIVITY);

@@ -11,7 +11,12 @@ const freeWeightSchema = new Schema({
   },
   image: {
     type: String
+  }, 
+  link: {
+    type: String,
+    required: true
   }
+
 });
 
 const FreeWeight = model('FreeWeight', freeWeightSchema);

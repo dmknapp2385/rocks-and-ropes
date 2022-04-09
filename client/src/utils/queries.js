@@ -74,14 +74,14 @@ export const QUERY_ACTIVITY_BY_DAY = gql`
       }`
 
 export const QUERY_FREEWEIGHTS = gql`
-    query FreeWeights {
-        freeWeights {
-          _id
-          name
-          description
-          image
-        }
-    }`
+query freeWeights{
+    freeWeights {
+      name
+      description
+      image
+      link
+    }
+  }`
 
 export const QUERY_FREEWEIGHT = gql`
     query FreeWeight($id: ID!) {
@@ -90,5 +90,6 @@ export const QUERY_FREEWEIGHT = gql`
           name
           description
           image
+          link
         }
     }`
