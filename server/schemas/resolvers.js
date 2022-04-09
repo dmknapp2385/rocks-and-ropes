@@ -42,7 +42,7 @@ const resolvers = {
         })
       return activityData;
     },
-    freeWeights: async (parent, args) => {
+    freeWeights: async () => {
       const weightData = await FreeWeight.find({})
       return weightData;
     },
