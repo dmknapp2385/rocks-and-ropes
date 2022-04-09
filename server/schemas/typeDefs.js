@@ -33,6 +33,7 @@ type FreeWeight {
   name: String
   description: String
   image: String
+  link: String
 }
 
 input ActivityInput {

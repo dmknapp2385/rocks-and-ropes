@@ -79,6 +79,7 @@ query freeWeights{
       name
       description
       image
+      link
     }
   }`
 
@@ -89,5 +90,6 @@ export const QUERY_FREEWEIGHT = gql`
           name
           description
           image
+          link
         }
     }`
