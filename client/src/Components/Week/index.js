@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Day from "../Day";
-import { Container, Row } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import { REMOVE_ALL_ACTIVITIES } from '../../utils/mutations';
@@ -47,12 +47,12 @@ const Week = (props) => {
 
         <Container className="text-center mt-5" fluid>
             <h2>Weekly Calendar</h2>
-            <Row className="w-100 justify-content-center">
+            <Col className="w-100 justify-content-center ">
                 {days.map((day, i) => {
                     const temp = activities.filter(activity => activity.day === days[i]);
                     return <Day day={day} days={days} activities={temp ? temp : []} allActivities={activities} setActivities={setActivities} key={day} />
                 })}
-            </Row>
+            </Col>
             <button className="m-2 rounded border border-dark" onClick={handleClearClick}>Clear Calendar</button>
         </Container>
     );

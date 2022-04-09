@@ -70,3 +70,13 @@ a {
 a:hover {
   color: #C2E5D3; 
 }
+
+.activity {
+  width : 30%;
+}
+
+@media (max-width: 400px) {
+  .activity{
+    width: 100%;
+  }
+}
