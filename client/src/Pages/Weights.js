@@ -11,13 +11,13 @@ function Weights () {
             <Row className="mt-5"> 
                 <Col>
                     <Link to='/weights/free'>
-                        <h3>Free Weights</h3>
+                        <h3 className='text-red'>Free Weights</h3>
                         <img src={placeholder} style={{borderRadius:'5px', width: '20rem', }} alt='placeholder'/>
                     </Link>
                 </Col>
                 <Col>
                     <Link to='/weights/rings'>
-                        <h3>Rings</h3>
+                        <h3 className='text-red'>Rings</h3>
                         <img src={placeholder} style={{borderRadius:'5px', width: '20rem'}} alt='placeholder'/>
                     </Link>
                 </Col>
@@ -25,7 +25,7 @@ function Weights () {
             <Row className="mt-5">
                 <Col>
                     <Link to='/weights/trx'>
-                    <h3>TRX Bands</h3>
+                    <h3 className='text-red'>TRX Bands</h3>
                     <img src={placeholder}  style={{borderRadius:'5px', height: '300px', width: '20rem'}} alt='placeholder'/>
                     </Link>
                 </Col>
