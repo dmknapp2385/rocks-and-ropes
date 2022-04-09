@@ -147,7 +147,7 @@ function AddModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="success" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
