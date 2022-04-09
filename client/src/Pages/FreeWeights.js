@@ -36,14 +36,14 @@ function FreeWeights(props) {
                   <Col sm={4}>
                   <img src={require(`../assets/Images/${weight.image}.jpg`)} className="justify-content-center" style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                   </Col>
-                  <Col sm={8}>
-                      <h3>
-                       {weight.name}
-                      </h3>
-                      <p>
-                          {weight.description}
-                      </p>
-                      {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick(`${weight.name}`, `${weight.link}`)}>Add to Calendar</Button>)}
+                  <Col sm={{span: 8, order: `${index % 2 === 0? 'last': 'first'}`}}>
+                    <h3>
+                    {weight.name}
+                    </h3>
+                    <p>
+                        {weight.description}
+                    </p>
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick(`${weight.name}`, `${weight.link}`)}>Add to Calendar</Button>)}
                   </Col>
               </Row>
             ))}
