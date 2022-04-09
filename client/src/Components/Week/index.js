@@ -45,7 +45,7 @@ const Week = (props) => {
     };
     return (
 
-        <Container className="text-center mt-5 flex-direction-column" fluid>
+        <Container className="text-center mt-5" fluid>
             <h2>Weekly Calendar</h2>
             <Col className="w-100 justify-content-center ">
                 {days.map((day, i) => {
