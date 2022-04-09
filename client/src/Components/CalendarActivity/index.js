@@ -38,7 +38,7 @@ const CalendarActivity = ({ activity, setActivities, activities, days}) => {
                 <p className="font-weight-bold">{activity.name}</p>
             </div>
             <div>
-                <p>{activity.length} mins</p>
+                <p>{activity.length}</p>
             </div>
             <div className="m-2">
                 <button className="detail rounded border border-dark"><FontAwesomeIcon icon={faPlus} onClick={handleDetailClick} /></button>
