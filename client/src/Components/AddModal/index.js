@@ -102,7 +102,7 @@ function AddModal(props) {
                 <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      {formData.sets === ''? 'Sets': `${formData.sets}`}
+                      {formData.sets === 0 ? 'Sets': `${formData.sets}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
@@ -117,12 +117,11 @@ function AddModal(props) {
 
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-                      {formData.reps === ''? 'Reps': `${formData.reps}`}
+                      {formData.reps === 0 ? 'Reps': `${formData.reps}`}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                      <Dropdown.Item onClick={() => handleClick ('reps', 5)}>5
-                      </Dropdown.Item>
+                      <Dropdown.Item onClick={() => handleClick ('reps', 5)}>5</Dropdown.Item>                      
                       <Dropdown.Item onClick={() => handleClick ('reps', 10)}>10</Dropdown.Item>
                       <Dropdown.Item onClick={() => handleClick ('reps', 12)}>12</Dropdown.Item>
                       <Dropdown.Item onClick={() => handleClick ('reps', 15)}>15</Dropdown.Item>
@@ -148,7 +147,7 @@ function AddModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="secondary" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
