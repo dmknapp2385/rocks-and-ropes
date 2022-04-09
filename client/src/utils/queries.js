@@ -15,7 +15,9 @@ export const QUERY_ME = gql`
             sets
             reps
             link
-            userId
+            userId {
+                _id
+            }
         }
     }
 }`

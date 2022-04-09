@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Button, } from 'react-bootstrap';
 
 const Signup = () => {
     const [username, setUsername] = useState("");
@@ -81,6 +82,10 @@ const Signup = () => {
                         <button type='submit' className="ml-5 p-2 rounded border-dark shadow">
                             Submit
                         </button>
+                    </div>
+                    <div className = 'd-flex justify-content-start align-items-center' style={{width: '65%', paddingTop: '50px'}}>
+                        <p className="mr-4 text-center">Already have an account? </p>
+                        <Button variant="secondary" href="/login">Login</Button>
                     </div>
                 </div>
             </form>
