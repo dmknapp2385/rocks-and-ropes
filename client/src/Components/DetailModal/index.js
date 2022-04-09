@@ -17,7 +17,7 @@ function DetailModal(props) {
                         <h4>{activity.name}</h4>
                         <div className="p-2">
                             <p>Day: {activity.day}</p>
-                            <p>Duration: {`${activity.length} minutes`}</p>
+                            <p>Duration: {`${activity.length}`}</p>
                         </div>
                         <div className = "p-2">
                             <p>Sets: {activity.sets}</p>
