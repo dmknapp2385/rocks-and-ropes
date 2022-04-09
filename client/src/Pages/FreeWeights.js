@@ -23,7 +23,7 @@ function FreeWeights({setShowModal}) {
             {freeWeightData.map(weight=> (
                 <Row className="mt-5 mx-5">
                   <Col sm={4}>
-                  <img className="justify-content-center" src={require(`${weight.image}`)} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                  {/* <img className="justify-content-center" src={require(`${weight.image}`)} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/> */}
                   </Col>
                   <Col sm={8}>
                       <h3>

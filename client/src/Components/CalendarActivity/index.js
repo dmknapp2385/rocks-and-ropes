@@ -2,20 +2,14 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 import DetailModal from '../DetailModal';
-<<<<<<< HEAD
-
-const CalendarActivity = ({ activity, setActivities }) => {
-    const [showDetailModal , setShowDetailModal] = useState(false);
-    const handleDeleteClick = (event) => {
-=======
 import { useMutation } from '@apollo/client';
 import { REMOVE_ACTIVITY } from '../../utils/mutations'
+
 const CalendarActivity = ({ activity, setActivities, activities, days}) => {
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [removeActivity, { error }] = useMutation(REMOVE_ACTIVITY);
 
     const handleDeleteClick = async(event) => {
->>>>>>> 5bcd884e75d22bb72240d82705bb433ec8745fa3
         //delete activity call here
         try {
             const { data } = await removeActivity({ variables: { activityId: activity._id } });
