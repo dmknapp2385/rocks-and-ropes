@@ -28,7 +28,7 @@ function Upstairs (props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    {(auth.loggedIn() && <Button variant="outline-secondary" onClick={()=> handleButtonClick('Tension Board', 'tension')}>Add to Calendar</Button>)}
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Tension Board', 'tension')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='spray' className="mt-5">
@@ -42,7 +42,7 @@ function Upstairs (props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Spray Wall', 'spray')} variant="outline-secondary">Add to Calendar</Button>)}
+                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Spray Wall', 'spray')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='hangboards' className="mt-5">
@@ -56,7 +56,7 @@ function Upstairs (props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Hangboards', 'hangboards')} variant="outline-secondary">Add to Calendar</Button>)}
+                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Hangboards', 'hangboards')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='campus' className="mt-5">
@@ -70,7 +70,7 @@ function Upstairs (props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Campus Board', 'campus')} variant="outline-secondary">Add to Calendar</Button>)}
+                    {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Campus Board', 'campus')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
             </Row>
         </Container>
