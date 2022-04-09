@@ -18,7 +18,7 @@ const CalendarActivity = ({ activity, setActivities, activities, days}) => {
             }
             //update activities state
             let temp = [...activities];
-            temp[days.findIndex(activity.day)] = temp[days.findIndex(activity.day)].filter((elem) => elem._id !== activity._id);
+            temp = temp.filter((elem) => elem._id !== activity._id);
             setActivities(temp);
         }
         catch (e) {

@@ -37,6 +37,7 @@ const client = new ApolloClient({
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [activity, setActivity] = useState('');
+  const [activities, setActivities] = useState([]);
   const[link, setlink] = useState('');
 
   return (
@@ -54,7 +55,7 @@ function App() {
             <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path='/week' component={Week} />
+            <Route exact path='/week' render={(props) => <Week {...props} activities={activities} setActivities={setActivities}/>}/>
           </Switch>
         </Router>
         
