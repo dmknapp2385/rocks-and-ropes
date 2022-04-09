@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import placeholder from '../assets/Images/placeholder.jpg';
+import auth from '../utils/auth';
 
 function Trx(props) {
     const {setShowModal, setActivity, setlink} = props;
@@ -23,7 +24,7 @@ function Trx(props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <Button onClick={()=> handleButtonClick('', '')} variant="outline-secondary">Add to Calendar</Button>{' '}
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='exercise2' className="mt-5 mx-5">
@@ -37,7 +38,7 @@ function Trx(props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <Button onClick={()=> handleButtonClick('', '')} variant="outline-secondary">Add to Calendar</Button>{' '}
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='exercise3' className="mt-5 mx-5">
@@ -51,7 +52,7 @@ function Trx(props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <Button onClick={()=> handleButtonClick('', '')} variant="outline-secondary">Add to Calendar</Button>{' '}
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             <Row id='exercise4' className="mt-5 mx-5">
@@ -65,7 +66,7 @@ function Trx(props) {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <Button onClick={()=> handleButtonClick('', '')} variant="outline-secondary">Add to Calendar</Button>{' '}
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             
