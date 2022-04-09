@@ -32,7 +32,7 @@ const CalendarActivity = ({ activity, setActivities, activities, days}) => {
     }
 
     return (
-        <div className="border border-dark rounded m-2 text-center">
+        <div className="border border-dark rounded m-2 text-center" style={{width:"30%"}}>
             <DetailModal showDetailModal={showDetailModal} setShowDetailModal={setShowDetailModal} activity={activity} />
             <div>
                 <p className="font-weight-bold">{activity.name}</p>
