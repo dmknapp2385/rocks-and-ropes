@@ -44,6 +44,9 @@ img {
 .text-red{
   color: var(--red);
 }
+.text-tan{
+  color: var(--tan);
+}
 
 h1,
 h2,

@@ -42,7 +42,7 @@ const Login = () => {
                     <h2 className="h2">Welcome back!</h2>
                     <h3 className="h3">Sign into your account.</h3>
                     <label htmlFor="email">Email:</label>
-                    <input className="mr-5 mb-5"
+                    <input className="mr-5 mb-5 p-2 rounded text-red"
                         style={{ width: "70%" }}
                         name="email"
                         onChange={handleFormChange}
@@ -52,7 +52,7 @@ const Login = () => {
                         value={email}
                     />
                     <label htmlFor="password">Password:</label>
-                    <input className="mr-5 mb-5"
+                    <input className="mr-5 mb-5 p-2 rounded text-red" required
                         style={{ width: "70%" }}
                         name="password"
                         onChange={handleFormChange}
@@ -63,17 +63,18 @@ const Login = () => {
                         value={password}
                     />
                     <div className="d-flex justify-content-center" style={{ width: "65%" }}>
-                        <button type='submit' className="ml-5 p-2 rounded border-dark shadow">
+                        <Button type='submit' variant="secondary">
                             Submit
-                        </button>
+                        </Button>
                     </div>
                     <div className = 'd-flex justify-content-start align-items-center' style={{width: '65%', paddingTop: '50px'}}>
                         <p className="mr-4 text-center">Don't have an account? </p>
                         <Button variant="secondary" href="/signup">Sign up</Button>
                     </div>
+                    {error && <div className="p-2 rounded" style={{backgroundColor: 'pink', color: 'red', width: '70%'}}>Login failed: Invalid Credentials</div>}
                 </div>
             </form>
-            {error && <div>Login failed</div>}
+            
 
         </div>
     );
