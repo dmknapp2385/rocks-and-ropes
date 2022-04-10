@@ -23,7 +23,7 @@ function AddModal(props) {
       const { data } = await addActivity({
         variables: { input: input}
       });
-      
+      setFormData({day:'', length:'', reps:0, sets:0, note:''});
       setShowModal(false);
     } catch (e) {
       console.error(e);
