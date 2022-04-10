@@ -26,7 +26,7 @@ function Upstairs (props) {
                         Tension Board
                     </h3>
                     <p>
-                    The tension board is a training board designed to train power and body tension. To operate the board, download the tension app from your phone’s app store. When connecting your app, this board is 12X8 with full set of holds and LED lights.  Name your board whatever you’d like. Make sure your Bluetooth is on and connect. Once connected you can choose from hundreds of tension board bolder problems graded on a <a href="" style={{}}>V Scale</a>. When you cast the boulder problem, LED lights show the hands and feet. Green=starting hands, purple=foot hold only, red=ending hold.  The tension board is also symmetrical to allow for balanced strengthening. 
+                    The tension board is a training board designed to train power and body tension. To operate the board, download the tension app from your phone’s app store. When connecting your app, this board is 12X8 with full set of holds and LED lights.  Name your board whatever you’d like. Make sure your Bluetooth is on and connect. Once connected you can choose from hundreds of tension board bolder problems graded on a <a href="https://en.wikipedia.org/wiki/Grade_(bouldering)">V Scale</a>. When you cast the boulder problem, LED lights show the hands and feet. Green=starting hands, purple=foot hold only, red=ending hold.  The tension board is also symmetrical to allow for balanced strengthening. 
                     </p>
                     {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Tension Board', 'tension')}>Add to Calendar</Button>)}
                 </Col>
@@ -40,7 +40,7 @@ function Upstairs (props) {
                         Spray Wall
                     </h3>
                     <p>
-                    The spray wall, also known as a circuit board, is here to help train endurance, particularly power endurance. The wall contains an assortment of holds of various types. Feel free to choose your own path, or circuit, with the holds, or follow the numbered tags on the hold. Each colored number sequence corresponds to a different grade starting at 5.10 to 5.13 on the <a href="">Yosemite Decimal System</a>. The numbered holds are hand holds and feet are whatever hold works for you. 
+                    The spray wall, also known as a circuit board, is here to help train endurance, particularly power endurance. The wall contains an assortment of holds of various types. Feel free to choose your own path, or circuit, with the holds, or follow the numbered tags on the hold. Each colored number sequence corresponds to a different grade starting at 5.10 to 5.13 on the <a href="https://en.wikipedia.org/wiki/Yosemite_Decimal_System">Yosemite Decimal System</a>. The numbered holds are hand holds and feet are whatever hold works for you. 
                     </p>
                     {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Spray Wall', 'spray')} variant="secondary">Add to Calendar</Button>)}
                 </Col>

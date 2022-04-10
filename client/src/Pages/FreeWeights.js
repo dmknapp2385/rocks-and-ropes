@@ -31,7 +31,7 @@ function FreeWeights(props) {
     return(
         <Container className="mx-5" fluid>
             {freeWeightData.map((weight, index)=> (
-                <Row key={weight.link} className="mt-5 mx-5">
+                <Row key={weight.link} id={weight.link} className="mt-5 mx-5">
                   <Col sm={4}>
                   <img src={require(`../assets/Images/${weight.image}.jpg`)} className="justify-content-center" style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                   </Col>

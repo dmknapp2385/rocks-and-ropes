@@ -48,7 +48,6 @@ function App() {
   const [formData, setFormData] = useState({day:'', length:'', reps:0, sets:0, note:''})
   const detailModalProps = [setShowModal, setIsEdit, setFormData, setActivity, setlink]
 
-
   return (
     <ApolloProvider client={client}>
       <Navbar />
