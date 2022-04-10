@@ -5,7 +5,9 @@ function DetailModal(props) {
     const { showDetailModal, setShowDetailModal, activity } = props
 
     const handleClose = () => setShowDetailModal(false);
-
+    const handleEdit=()=> {
+        
+    }
     return (
         <Modal show={showDetailModal} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -33,6 +35,9 @@ function DetailModal(props) {
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Close
+                </Button>
+                <Button variant="secondary" onClick={handleEdit}>
+                    Edit
                 </Button>
             </Modal.Footer>
         </Modal>

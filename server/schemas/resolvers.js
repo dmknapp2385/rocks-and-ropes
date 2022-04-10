@@ -9,6 +9,7 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .populate({
             path: 'savedActivities',
+            // match: {day: args.day},
             select: '-__v'
           })
           .select('-__v -password')

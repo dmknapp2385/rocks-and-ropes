@@ -35,15 +35,23 @@ const client = new ApolloClient({
 
 
 function App() {
+  //shows add to calendar modal
   const [showModal, setShowModal] = useState(false);
+  //sets activity to save to calendar
   const [activity, setActivity] = useState('');
   const [activities, setActivities] = useState([]);
+  //sets link to save to calendar
   const[link, setlink] = useState('');
+  //sets if add to calendar modal is an edit/update
+  const [isEdit, setIsEdit] = useState(false);
+  // sets form data for add to calendar  modal
+  const [formData, setFormData] = useState({day:'', length:'', reps:0, sets:0, note:''})
+
 
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <AddModal setShowModal={setShowModal}  showModal={showModal} activity={activity} link={link} />
+      <AddModal setShowModal={setShowModal} setFormData={setFormData} setIsEdit={setIsEdit} formData={formData} isEdit={isEdit} showModal={showModal} activity={activity} link={link}/>
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />

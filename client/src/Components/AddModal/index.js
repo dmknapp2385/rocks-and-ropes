@@ -5,8 +5,8 @@ import { ADD_ACTIVITY } from '../../utils/mutations';
 
 
 function AddModal(props) {
-  const {showModal, setShowModal, activity, link} = props
-  const [formData, setFormData] = useState({day:'', length:'', reps:0, sets:0, note:''})
+  const {showModal, setShowModal, activity, link, formData, setFormData, isEdit, setIsEdit} = props
+  console.log(isEdit);
   const [addActivity] = useMutation(ADD_ACTIVITY);
 
   //form event handlers
@@ -28,6 +28,14 @@ function AddModal(props) {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  const handleUpdate = async() => {
+    console.log(formData);
+    //use mutation here
+    setFormData({day:'', length:'', reps:0, sets:0, note:''});
+    setIsEdit(false);
+    setShowModal(false);
   }
   
   return (
@@ -147,9 +155,9 @@ function AddModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="secondary" onClick={handleSubmit}>
-            Save Changes
-          </Button>
+          {isEdit? (<Button variant='secondary' onClick={handleUpdate}>Save Changes</Button>):(<Button variant="secondary" onClick={handleSubmit}>
+            Save 
+          </Button>)}
         </Modal.Footer>
       </Modal>
     </>
