@@ -81,4 +81,17 @@ export const REMOVE_ALL_ACTIVITIES = gql`
         }
       }`
 
+export const UPDATE_ACTIVITY = gql`
+mutation UpdateActivity($activityId: ID!, $input: ActivityInput) {
+    updateActivity(activityId: $activityId, input: $input) {
+        _id
+        day
+        length
+        name
+        note
+        sets
+        reps
+        link
+    }
+}`
 
