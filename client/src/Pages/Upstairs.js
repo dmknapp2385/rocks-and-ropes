@@ -26,7 +26,7 @@ function Upstairs (props) {
                         Tension Board
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    The tension board is a training board designed to train power and body tension. To operate the board, download the tension app from your phone’s app store. When connecting your app, this board is 12X8 with full set of holds and LED lights.  Name your board whatever you’d like. Make sure your Bluetooth is on and connect. Once connected you can choose from hundreds of tension board bolder problems graded on a <a href="" style={{}}>V Scale</a>. When you cast the boulder problem, LED lights show the hands and feet. Green=starting hands, purple=foot hold only, red=ending hold.  The tension board is also symmetrical to allow for balanced strengthening. 
                     </p>
                     {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Tension Board', 'tension')}>Add to Calendar</Button>)}
                 </Col>
@@ -40,7 +40,7 @@ function Upstairs (props) {
                         Spray Wall
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    The spray wall, also known as a circuit board, is here to help train endurance, particularly power endurance. The wall contains an assortment of holds of various types. Feel free to choose your own path, or circuit, with the holds, or follow the numbered tags on the hold. Each colored number sequence corresponds to a different grade starting at 5.10 to 5.13 on the <a href="">Yosemite Decimal System</a>. The numbered holds are hand holds and feet are whatever hold works for you. 
                     </p>
                     {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Spray Wall', 'spray')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
@@ -54,7 +54,7 @@ function Upstairs (props) {
                         Hangboards
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    These devices are for finger training and strengthening. As their name implies, you simply hang on these boards with anything from both hands to mere fingertips of two fingers. The smaller the hold or the more the weight, the more advanced the exercise.  Depending on the exercise, you can target tendon or ligament (finger pulley) strength.  More reps (seconds hanging) with less rest time will train ligaments, and long hangs on smaller holds or with more weight added to your body with more rest , will train tendons. Here are some typical hangboard workouts. Repeaters: 7sec hang, 3 sec rest, ten times. Max hangs: 10 sec hang (usually trying to add weight or decrease hold size) with two to three minute rest between. Try for three sets of three different hold types(crimps, slopers, pinches, open hand)
                     </p>
                     {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Hangboards', 'hangboards')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
@@ -68,7 +68,7 @@ function Upstairs (props) {
                         Campus Board
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    The campus board is a very advanced training exercise that would not typically be recommended for new climbers as it can lead to injury. Campusing is the act of moving from one hold to another without any feet on the wall. However, this board can be used to progress to this and develop the pure strength and power required to do so. 
                     </p>
                     {(auth.loggedIn() && <Button onClick={()=> handleButtonClick('Campus Board', 'campus')} variant="secondary">Add to Calendar</Button>)}
                 </Col>
