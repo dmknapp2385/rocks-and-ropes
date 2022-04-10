@@ -13,7 +13,6 @@ function FreeWeights(props) {
     const {setShowModal, setActivity, setlink} = props;
 
     function handleButtonClick(activity, link) {
-        console.log(link, activity);
         setShowModal(true);
         setActivity(activity);
         setlink(`/weights/free#${link}`)

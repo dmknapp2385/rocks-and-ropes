@@ -12,7 +12,7 @@ const Week = (props) => {
         window.location.assign('/');
     }
     const days = ["Sunday", 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', "Saturday"];
-    const { activities, setActivities } = props;
+    const { activities, setActivities, detailModalProps } = props;
     const userProfile = Auth.getProfile();
     const [removeAllActivities, { error }] = useMutation(REMOVE_ALL_ACTIVITIES);
     const { data, loading } = useQuery(QUERY_ME);
@@ -23,7 +23,6 @@ const Week = (props) => {
     useEffect(() => {
         if(data){
             savedActivities = data.me.savedActivities;
-            console.log(savedActivities);
             setActivities(savedActivities);
         }
     }, [data]);
@@ -50,7 +49,7 @@ const Week = (props) => {
             <Col className="w-100 justify-content-center ">
                 {days.map((day, i) => {
                     const temp = activities.filter(activity => activity.day === days[i]);
-                    return <Day day={day} days={days} activities={temp ? temp : []} allActivities={activities} setActivities={setActivities} key={day} />
+                    return <Day day={day} days={days} activities={temp ? temp : []} allActivities={activities} setActivities={setActivities} detailModalProps={detailModalProps} key={day} />
                 })}
             </Col>
             <button className="m-2 rounded border border-dark" onClick={handleClearClick}>Clear Calendar</button>

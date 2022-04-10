@@ -46,6 +46,7 @@ function App() {
   const [isEdit, setIsEdit] = useState(false);
   // sets form data for add to calendar  modal
   const [formData, setFormData] = useState({day:'', length:'', reps:0, sets:0, note:''})
+  const detailModalProps = [setShowModal, setIsEdit, setFormData, setActivity, setlink]
 
 
   return (
@@ -63,7 +64,7 @@ function App() {
             <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path='/week' render={(props) => <Week {...props} activities={activities} setActivities={setActivities}/>}/>
+            <Route exact path='/week' render={(props) => <Week {...props} detailModalProps={detailModalProps} activities={activities} setActivities={setActivities}/>}/>
           </Switch>
         </Router>
         

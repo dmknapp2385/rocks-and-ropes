@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { Container, Col, Modal, Button, } from 'react-bootstrap';
 
 function DetailModal(props) {
-    const { showDetailModal, setShowDetailModal, activity } = props
-
+    const { showDetailModal, setShowDetailModal, activity, detailModalProps } = props
+    const [setShowModal, setIsEdit, setFormData, setActivity, setlink] = detailModalProps;
     const handleClose = () => setShowDetailModal(false);
     const handleEdit=()=> {
-        
+        setIsEdit(true);
+        setActivity(activity.name)
+        setlink(activity.link)
+        setFormData({day:activity.day, length: activity.length, reps:activity.reps, sets:activity.sets, note:activity.note});
+        setShowModal(true);
+        setShowDetailModal(false);
     }
+
     return (
         <Modal show={showDetailModal} onHide={handleClose}>
             <Modal.Header closeButton>

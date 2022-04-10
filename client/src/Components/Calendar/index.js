@@ -66,7 +66,6 @@ function CalendarPage() {
     }, [month])
     
     // need to get window size to condiationally render smaller views for <700px
-    console.log(RowDateArrays)
   return (
     <Container fluid className="mx-auto">
         <h2>My WorkOut Calendar</h2>

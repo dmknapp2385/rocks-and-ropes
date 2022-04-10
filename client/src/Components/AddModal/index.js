@@ -6,7 +6,6 @@ import { ADD_ACTIVITY } from '../../utils/mutations';
 
 function AddModal(props) {
   const {showModal, setShowModal, activity, link, formData, setFormData, isEdit, setIsEdit} = props
-  console.log(isEdit);
   const [addActivity] = useMutation(ADD_ACTIVITY);
 
   //form event handlers
@@ -31,9 +30,9 @@ function AddModal(props) {
   }
 
   const handleUpdate = async() => {
-    console.log(formData);
     //use mutation here
     setFormData({day:'', length:'', reps:0, sets:0, note:''});
+    
     setIsEdit(false);
     setShowModal(false);
   }
