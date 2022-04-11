@@ -83,6 +83,7 @@ function AddModal(props) {
             <Container className="mb-3">
             <Row className='mb-3 text-center'>
                 {/* conditionally render this when opened from the add to calendar button from pages */}
+                <label>Day</label>
               <Dropdown style={{width:'150px'}}>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
                       {formData.day === '' ? 'Day': `${formData.day}`}
@@ -100,6 +101,7 @@ function AddModal(props) {
                   </Dropdown>
               </Row>
               <Row>
+              <label>Length</label>
               <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
@@ -114,7 +116,7 @@ function AddModal(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-
+                <label>Sets</label>
                 <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
@@ -129,8 +131,8 @@ function AddModal(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
+                <label>Reps</label>
                 <Col>
-
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
                       {formData.reps === 0 ? 'Reps': `${formData.reps}`}
@@ -152,7 +154,7 @@ function AddModal(props) {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>note</Form.Label>
+              <Form.Label>Note</Form.Label>
               <Form.Control className = "text-red" name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} />
             </Form.Group>
           </Form>
