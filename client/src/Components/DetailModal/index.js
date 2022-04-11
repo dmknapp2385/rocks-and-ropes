@@ -17,10 +17,10 @@ function DetailModal(props) {
 
     return (
         <Modal show={showDetailModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Activity Details</Modal.Title>
+            <Modal.Header closeButton className="background-brown">
+                <Modal.Title className="text-tan">Activity Details</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className='background-tan'>
                  <Container className='mt-3'>
                     <Col >
                         <h4>{activity.name}</h4>
@@ -39,7 +39,7 @@ function DetailModal(props) {
                     </Col>     
                 </Container>   
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className = "background-brown">
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>

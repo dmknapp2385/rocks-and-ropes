@@ -5,6 +5,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
 import { REMOVE_ALL_ACTIVITIES } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { Button, } from 'react-bootstrap';
 
 const Week = (props) => {
     if (!Auth.loggedIn()) {
@@ -52,7 +53,7 @@ const Week = (props) => {
                     return <Day day={day} days={days} activities={temp ? temp : []} allActivities={activities} setActivities={setActivities} detailModalProps={detailModalProps} key={day} />
                 })}
             </Col>
-            <button className="m-2 rounded border border-dark" onClick={handleClearClick}>Clear Calendar</button>
+            <Button className = "mt-3 mb-3" variant="secondary" onClick={handleClearClick}>Clear Calendar</Button>
         </Container>
     );
 }

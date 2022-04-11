@@ -92,7 +92,7 @@ function AddModal(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
-
+                <label>Sets</label>
                 <Col>
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary" className='optionBtn'>
@@ -107,8 +107,8 @@ function AddModal(props) {
                     </Dropdown.Menu>
                   </Dropdown>
                 </Col>
+                <label>Reps</label>
                 <Col>
-
                   <Dropdown>
                     <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary" className='optionBtn'>
                       {formData.reps === 0 ? 'Reps' : `${formData.reps}`}
