@@ -61,11 +61,58 @@ h6 {
   font-weight: 300;
   font-style: italic;
 }
+.modalTitle{
+  padding-left: 150px;
+}
+.modalForm{
+  text-align: center;
+}
+.modalLabel{
+
+  font-size: 32px;
+}
+
 .btn-secondary:hover{
   background-color: var(--green);
   color: var(--dark-grey);
 }
+.dayBtn{
+  width: 100%;
+}
 
+.dayMenu{
+  width: 100%;
+  text-align: center !important;
+}
+
+.optionBtn{
+  width: 100%;
+}
+.optionMenu{
+  width: 100% !important;
+  text-align: center !important;
+  min-width: none !important;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 0;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0.25rem;
+}
 
 a {
   text-align: none;
