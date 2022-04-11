@@ -62,6 +62,7 @@ input ActivityInput {
     addActivity(input: ActivityInput): User
     removeActivity(activityId: ID!): User
     removeAllActivities(userId: ID!): User
+    updateActivity(activityId: ID!, input: ActivityInput): Activity
   }
 `;
 
