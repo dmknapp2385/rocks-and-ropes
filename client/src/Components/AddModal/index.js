@@ -5,9 +5,9 @@ import { ADD_ACTIVITY } from '../../utils/mutations';
 
 
 function AddModal(props) {
-  const {showModal, setShowModal, activity, link, formData, setFormData, isEdit, setIsEdit} = props
+  const {showModal, setShowModal, activity, link, formData, setFormData, isEdit, setIsEdit, updateId} = props
+  console.log(updateId, 'updateId')
   const [addActivity] = useMutation(ADD_ACTIVITY);
-
   //form event handlers
   const handleClose = () => setShowModal(false);
   const handleClick= (name, value) => {setFormData({...formData, [name]:value})};
