@@ -49,10 +49,10 @@ function AddModal(props) {
   return (
     <>
       <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Track A Workout</Modal.Title>
+        <Modal.Header closeButton className="background-brown">
+          <Modal.Title className="text-tan">Track A Workout</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='background-tan'>
           <Form>
             <Form.Label>{activity}</Form.Label>
             {/* use this once we get full calendar up and running */}
@@ -153,13 +153,13 @@ function AddModal(props) {
               controlId="exampleForm.ControlTextarea1"
             >
               <Form.Label>note</Form.Label>
-              <Form.Control name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} />
+              <Form.Control className = "text-red" name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} />
             </Form.Group>
           </Form>
 
 
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="background-brown">
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
