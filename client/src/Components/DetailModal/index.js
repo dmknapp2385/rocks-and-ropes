@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import { Container, Col, Modal, Button, } from 'react-bootstrap';
 
 function DetailModal(props) {
-    const { showDetailModal, setShowDetailModal, activity } = props
-
+    const { showDetailModal, setShowDetailModal, activity, detailModalProps } = props
+    const [setShowModal, setIsEdit, setFormData, setActivity, setlink, setUpdateId] = detailModalProps;
     const handleClose = () => setShowDetailModal(false);
+    const handleEdit=()=> {
+        setIsEdit(true);
+        setActivity(activity.name)
+        setlink(activity.link)
+        setFormData({day:activity.day, length: activity.length, reps:activity.reps, sets:activity.sets, note:activity.note});
+        setUpdateId(activity._id)
+        setShowModal(true);
+        setShowDetailModal(false);
+    }
 
     return (
         <Modal show={showDetailModal} onHide={handleClose}>
@@ -33,6 +42,9 @@ function DetailModal(props) {
             <Modal.Footer className = "background-brown">
                 <Button variant="secondary" onClick={handleClose}>
                     Close
+                </Button>
+                <Button variant="secondary" onClick={handleEdit}>
+                    Edit
                 </Button>
             </Modal.Footer>
         </Modal>

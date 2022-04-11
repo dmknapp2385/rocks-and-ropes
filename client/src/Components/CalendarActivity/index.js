@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_ACTIVITY } from '../../utils/mutations'
 import { Button, } from 'react-bootstrap';
 
-const CalendarActivity = ({ activity, setActivities, activities, days}) => {
+const CalendarActivity = ({ activity, setActivities, activities, days, detailModalProps}) => {
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [removeActivity, { error }] = useMutation(REMOVE_ACTIVITY);
 
@@ -35,7 +35,7 @@ const CalendarActivity = ({ activity, setActivities, activities, days}) => {
 
     return (
         <div className="activity border border-dark rounded m-2 text-center background-tan" >
-            <DetailModal showDetailModal={showDetailModal} setShowDetailModal={setShowDetailModal} activity={activity} />
+            <DetailModal showDetailModal={showDetailModal} detailModalProps={detailModalProps} setShowDetailModal={setShowDetailModal} activity={activity} />
             <div>
                 <p className="font-weight-bold p-1">{activity.name}</p>
             </div>

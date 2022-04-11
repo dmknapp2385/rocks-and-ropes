@@ -78,12 +78,7 @@ const resolvers = {
     addActivity: async (parent, { input }, context) => {
       if (context.user) {
 
-        console.log(context.user);
-        console.log(input);
-
         const activity = await Activity.create(input)
-
-        console.log(activity);
 
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -103,12 +98,8 @@ const resolvers = {
     },
     removeActivity: async (parent, { activityId }, context) => {
       if (context.user) {
-        console.log(context.user);
 
         const deletedActivity = await Activity.findOneAndDelete({ _id: activityId });
-
-        console.log(deletedActivity);
-        console.log(activityId);
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -126,7 +117,6 @@ const resolvers = {
     },
     removeAllActivities: async (parent, args, context) => {
       if (context.user) {
-        console.log(args);
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -145,6 +135,18 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    updateActivity: async (parent, { activityId, input }, context) => {
+      if (context.user) {
+
+        const updatedActivity = await Activity.findOneAndUpdate(
+          { _id: activityId },
+          {$set: {day: input.day, length: input.length, note: input.note, sets: input.sets, reps: input.reps }},
+          { new: true }
+        )
+        return updatedActivity;
+
+      }
     }
   }
 };

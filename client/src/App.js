@@ -35,15 +35,24 @@ const client = new ApolloClient({
 
 
 function App() {
+  //shows add to calendar modal
   const [showModal, setShowModal] = useState(false);
+  //sets activity to save to calendar
   const [activity, setActivity] = useState('');
   const [activities, setActivities] = useState([]);
+  //sets link to save to calendar
   const[link, setlink] = useState('');
-
+  //sets if add to calendar modal is an edit/update
+  const [isEdit, setIsEdit] = useState(false);
+  // sets form data for add to calendar  modal
+  const [formData, setFormData] = useState({day:'', length:'', reps:0, sets:0, note:''});
+  const [updateId, setUpdateId] = useState('');
+  const detailModalProps = [setShowModal, setIsEdit, setFormData, setActivity, setlink, setUpdateId]
+  
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <AddModal setShowModal={setShowModal}  showModal={showModal} activity={activity} link={link} />
+      <AddModal updateId={updateId} setShowModal={setShowModal} setFormData={setFormData} setIsEdit={setIsEdit} formData={formData} isEdit={isEdit} showModal={showModal} activity={activity} link={link}/>
         <Router>
           <Switch>
             <Route exact path='/' component={Homepage} />
@@ -55,7 +64,7 @@ function App() {
             <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path='/week' render={(props) => <Week {...props} activities={activities} setActivities={setActivities}/>}/>
+            <Route exact path='/week' render={(props) => <Week {...props} detailModalProps={detailModalProps} activities={activities} setActivities={setActivities}/>}/>
           </Switch>
         </Router>
         
