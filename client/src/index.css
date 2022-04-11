@@ -44,6 +44,9 @@ img {
 .text-red{
   color: var(--red);
 }
+.text-tan{
+  color: var(--tan);
+}
 
 h1,
 h2,
@@ -74,7 +77,7 @@ h6 {
   color: var(--dark-grey);
 }
 .dayBtn{
-  width:100%
+  width: 100%;
 }
 
 .dayMenu{
@@ -83,7 +86,7 @@ h6 {
 }
 
 .optionBtn{
-  width: 100%
+  width: 100%;
 }
 .optionMenu{
   width: 100% !important;

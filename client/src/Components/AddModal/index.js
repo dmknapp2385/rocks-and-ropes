@@ -49,37 +49,12 @@ function AddModal(props) {
   return (
     <>
       <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className='background-brown text-tan'>
           <Modal.Title className='modalTitle'>Track A Workout</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className='background-tan'>
           <Form className='modalForm'>
             <Form.Label className='modalLabel'>{activity}</Form.Label>
-            {/* use this once we get full calendar up and running */}
-            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                autoFocus
-              />
-            </Form.Group> */}
-
-            {/* conditionally render this when called from the calendar page directly so custom workouts can be inputed */}
-            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Workout name</Form.Label>
-              <Form.Control
-                type="text"
-                autoFocus
-              />
-            </Form.Group> */}
-
-            {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Length</Form.Label>
-              <Form.Control
-                type="text"
-                autoFocus
-              />
-            </Form.Group> */}
             <Container className="mb-3">
               <Row className='mb-3'>
                 {/* conditionally render this when opened from the add to calendar button from pages */}
@@ -155,14 +130,14 @@ function AddModal(props) {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>note</Form.Label>
-              <Form.Control name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} />
+              <Form.Label>Note</Form.Label>
+              <Form.Control name='note' value={formData.note} onChange={handleChange} as="textarea" rows={3} className='text-red' />
             </Form.Group>
           </Form>
 
 
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className='background-brown'>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
