@@ -13,60 +13,56 @@ function Trx(props) {
     }
     return(
         <Container className="mx-5" fluid>
-             <Row id='exercise1' className="mt-5 mx-5">
+             <Row id='kneetuck' className="mt-5 mx-5">
                 <Col sm={4}>
                 <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
-                        Exercise 1
+                        Knee Tuck
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
+                    Lower the bands to a foot off the ground. Place your feet in the trx foot loops (the unpadded loops) and get into plank position with your feet positioned directly below the bands. Squeeze your abdominal muscles in while you tuck your knees to your chest.                     </p>
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Knee Tuck', 'kneetuck')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='exercise2' className="mt-5 mx-5">
+            <Row id='singlerow' className="mt-5 mx-5">
                 <Col sm={{span: 4, order: 'last'}}>
                 <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
-                        Exercise 2
+                        Single Arm Row
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
+                    Position the TRX handles a couple feet off the ground. Grab one handle and lean back with your arm extended in front of you. To make this exercise easier, walk your feet back to get in a more vertical position with your body, completely parallel to the ground is the most advanced. Pull your body toward the TRX band while simultaneously rotating and reaching your opposite, free hand up toward the top of the TRX band.                     </p>
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Single Arm Row', 'singlerow')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='exercise3' className="mt-5 mx-5">
+            <Row id='yfly' className="mt-5 mx-5">
                 <Col sm={4}>
                 <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
-                        Exericise 3
+                        Y-Fly
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
+                    Position TRX handles at chest level. Hold handles straight out in front with arms extended, lean back (the more parallel your body to the ground, the harder the exercise will be). In one motion, pull your body up by lifting your arms above your head at a 45 degree angle ending with them extended overhead in a y position. Reverse and repeat.                     </p>
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Y-Fly', 'yfly')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='exercise4' className="mt-5 mx-5">
+            <Row id='reversefly' className="mt-5 mx-5">
                 <Col sm={{span: 4, order: 'last'}}>
                 <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
-                        Exericise 4
+                        Reverse Fly
                     </h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('', '')}>Add to Calendar</Button>)}
+                    Position TRX handles at chest level. Hold handles straight out in front with arms extended, lean back (the more parallel your body to the ground, the harder the exercise will be). In one motion, pull your body toward the bands by opening your arms out straight to the side, ending in a T position. Reverse and repeat                    </p>
+                    {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Reverse Fly', 'reversefly')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
             
