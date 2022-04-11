@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { Container, Row, Col, Modal, Form, Button, Dropdown } from 'react-bootstrap';
-import { ADD_ACTIVITY } from '../../utils/mutations';
+import { ADD_ACTIVITY, UPDATE_ACTIVITY } from '../../utils/mutations';
 
 
 function AddModal(props) {
   const {showModal, setShowModal, activity, link, formData, setFormData, isEdit, setIsEdit, updateId} = props
   console.log(updateId, 'updateId')
   const [addActivity] = useMutation(ADD_ACTIVITY);
+  const [updateActivity] = useMutation(UPDATE_ACTIVITY);
+  //variables activityId, and Input
   //form event handlers
   const handleClose = () => setShowModal(false);
   const handleClick= (name, value) => {setFormData({...formData, [name]:value})};
@@ -30,11 +32,18 @@ function AddModal(props) {
   }
 
   const handleUpdate = async() => {
-    //use mutation here
-    setFormData({day:'', length:'', reps:0, sets:0, note:''});
+    const input = {...formData, name:`${activity}`, link:`${link}`};
+    try{
+      const { data } = await updateActivity({
+        variables: {input:input, activityId:updateId}
+      });
+      setFormData({day:'', length:'', reps:0, sets:0, note:''});
+      setIsEdit(false);
+      setShowModal(false);
+    } catch(e) {
+      console.error(e)
+    }
     
-    setIsEdit(false);
-    setShowModal(false);
   }
   
   return (
