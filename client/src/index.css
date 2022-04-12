@@ -14,8 +14,12 @@ body {
   color: var(--red);
 }
 
-img {
+img{
   border: 2px solid var(--green);
+  border-radius: 5px;
+}
+.mainPage{
+  border: 2px solid var(--dark-grey);
   border-radius: 5px;
 }
 
@@ -47,6 +51,9 @@ img {
 .text-tan{
   color: var(--tan);
 }
+.bg-image{
+  background-image: url('./assets/Images/IMG-1343.jpg');
+} 
 
 h1,
 h2,
