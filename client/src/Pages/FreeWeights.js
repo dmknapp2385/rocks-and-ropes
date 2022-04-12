@@ -29,11 +29,11 @@ function FreeWeights(props) {
     }
 
     return(
-        <Container className="mx-5" fluid>
+        <Container>
             {freeWeightData.map((weight, index)=> (
-                <Row key={weight.link} id={weight.link} className="mt-5 mx-5">
-                  <Col sm={4}>
-                  <img src={require(`../assets/Images/${weight.image}.jpg`)} className="justify-content-center" style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                <Row key={weight.link} id={weight.link} className="mt-5">
+                  <Col className="text-center" sm={4}>
+                  <img src={require(`../assets/Images/${weight.image}.jpg`)} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt={weight.name}/>
                   </Col>
                   <Col sm={{span: 8, order: `${index % 2 === 0? 'last': 'first'}`}}>
                     <h3>
