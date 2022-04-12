@@ -1,6 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import placeholder from '../assets/Images/placeholder.jpg';
+import kneetucks from '../assets/Images/knee-tucks.jpg';
+import singlerow from '../assets/Images/single-row.jpg';
+import yfly from '../assets/Images/y-fly.jpg';
+import reversefly from '../assets/Images/reverse-fly.jpg';
 import auth from '../utils/auth';
 
 function Trx(props) {
@@ -12,10 +16,10 @@ function Trx(props) {
         setlink(`/weights/trx#${link}`)
     }
     return(
-        <Container className="mx-5" fluid>
-             <Row id='kneetuck' className="mt-5 mx-5">
-                <Col sm={4}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+        <Container>
+             <Row id='kneetuck' className="mt-5">
+                <Col className="text-center" sm={4}>
+                <img src={kneetucks} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='knee tucks'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -26,9 +30,9 @@ function Trx(props) {
                     {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Knee Tuck', 'kneetuck')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='singlerow' className="mt-5 mx-5">
-                <Col sm={{span: 4, order: 'last'}}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+            <Row id='singlerow' className="mt-5">
+                <Col className="text-center" sm={{span: 4, order: 'last'}}>
+                <img  src={singlerow} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='single arm row'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -39,9 +43,9 @@ function Trx(props) {
                     {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Single Arm Row', 'singlerow')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='yfly' className="mt-5 mx-5">
-                <Col sm={4}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+            <Row id='yfly' className="mt-5">
+                <Col className='text-center' sm={4}>
+                <img src={yfly} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='y fly'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -52,9 +56,9 @@ function Trx(props) {
                     {(auth.loggedIn() && <Button variant="secondary" onClick={()=> handleButtonClick('Y-Fly', 'yfly')}>Add to Calendar</Button>)}
                 </Col>
             </Row>
-            <Row id='reversefly' className="mt-5 mx-5">
-                <Col sm={{span: 4, order: 'last'}}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+            <Row id='reversefly' className="mt-5">
+                <Col className="text-center" sm={{span: 4, order: 'last'}}>
+                <img src={reversefly} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='reverse fly'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
