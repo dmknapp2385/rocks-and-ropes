@@ -34,10 +34,12 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
 
 ## Preview
 Below are several screenshots of the Rocks and Ropes application:
-![HomePage](client/src/assets/read-img/read1.png) 
-![Upstairs](client/src/assets/read-img/read2.png) 
-![Weights](client/src/assets/read-img/read3.png) 
-![Login](client/src/assets/read-img/read4.png) 
+![HomePage](client/src/assets/read-img/home.png) 
+![Upstairs](client/src/assets/read-img/upstairs.png) 
+![Weights](client/src/assets/read-img/weights.png) 
+![Calendar](client/src/assets/read-img/calendar.png) 
+![Login](client/src/assets/read-img/login.png) 
+![SignUp](client/src/assets/read-img/signup.png) 
 
 ## Usage
 Follow the steps below to navigate and use the Rocks and Ropes application:
