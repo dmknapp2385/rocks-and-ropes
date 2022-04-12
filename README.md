@@ -71,8 +71,8 @@ Follow the steps below to navigate and use the Rocks and Ropes application:
 20. After using the application you can choose to logout when you are finished with all of your exploring and workout creating. 
 
 ## Link
-Click on the link below to visit the Rocks and Ropes Application:
-[Click here to go to app](https://rocks-and-ropes.herokuapp.com/)
+Click on the link below to visit the Rocks and Ropes Application:  
+[Go to app](https://rocks-and-ropes.herokuapp.com/)
 ## Credits
 [Elle Knapp](https://github.com/dmknapp2385)  
 [Miranda Lane](https://github.com/MirandaL27)  
