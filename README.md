@@ -15,6 +15,7 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
 
 ## Table of Contents
   * [Technologies](#technologies)
+  * [Deployment](#deployment)
   * [Credits](#credits)
 ## Technologies used
 - Node.js
@@ -27,6 +28,9 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
 - React
 - React Router
 - Bootstrap
+
+## Deployment
+[Click here to go to app](https://rocks-and-ropes.herokuapp.com/)
 
 ## Credits
 [Elle Knapp](https://github.com/dmknapp2385)  
