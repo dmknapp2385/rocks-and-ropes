@@ -15,11 +15,13 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
 
 ## Table of Contents
   * [Technologies](#technologies)
-
+  * [Deployment](#deployment)
   * [Preview](#preview)
   * [Usage](#usage)
   * [Link](#link)
-
+  * [Preview](#preview)
+  * [Usage](#usage)
+  * [Link](#link)
   * [Credits](#credits)
 
 ## Technologies used
@@ -33,6 +35,7 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
 - React
 - React Router
 - Bootstrap
+
 
 
 ## Preview
@@ -70,8 +73,6 @@ Follow the steps below to navigate and use the Rocks and Ropes application:
 ## Link
 Click on the link below to visit the Rocks and Ropes Application:
 [Click here to go to app](https://rocks-and-ropes.herokuapp.com/)
-
-
 ## Credits
 [Elle Knapp](https://github.com/dmknapp2385)  
 [Miranda Lane](https://github.com/MirandaL27)  

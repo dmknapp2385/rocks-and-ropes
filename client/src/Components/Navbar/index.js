@@ -6,7 +6,7 @@ function Navbar(props) {
     return (
         <RNavbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <RNavbar.Brand>
+          <RNavbar.Brand href="/">
             Tour of Rocks and Ropes
           </RNavbar.Brand>
           <RNavbar.Toggle aria-controls='navbar' />
