@@ -10,7 +10,7 @@ import CalendarPage from './Components/Calendar';
 import FreeWeights from "./Pages/FreeWeights";
 import Rings from "./Pages/Rings";
 import Trx from "./Pages/Trx";
-import Login from './Pages/Login';
+// import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import AddModal from './Components/AddModal';
 import Week from './Components/Week';
@@ -62,7 +62,7 @@ function App() {
             <Route exact path='/weights/trx' render={(props) => <Trx {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path='/weights/rings' render={(props) => <Rings {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
             <Route exact path='/weights/free' render={(props) => <FreeWeights {...props} setShowModal={setShowModal} setActivity={setActivity} setlink={setlink}/>} />
-            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/login" component={Login} /> */}
             <Route exact path="/signup" component={Signup} />
             <Route exact path='/week' render={(props) => <Week {...props} detailModalProps={detailModalProps} activities={activities} setActivities={setActivities}/>}/>
           </Switch>
