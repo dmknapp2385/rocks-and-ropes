@@ -43,8 +43,8 @@ const CalendarActivity = ({ activity, setActivities, activities, days, detailMod
                 <p>{activity.length}</p>
             </div>
             <div className="m-2">
-                <Button variant="secondary" className="detail m-2"><FontAwesomeIcon icon={faPlus} onClick={handleDetailClick} /></Button>
-                <Button variant = "secondary" className="delete m-2"><FontAwesomeIcon icon={faTrashCan} onClick={handleDeleteClick} /></Button>
+                <Button variant="secondary" className="detail m-2" onClick={handleDetailClick}><FontAwesomeIcon icon={faPlus}/></Button>
+                <Button variant = "secondary" className="delete m-2" onClick={handleDeleteClick}><FontAwesomeIcon icon={faTrashCan}/></Button>
             </div>
         </div>
     );
