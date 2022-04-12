@@ -1,5 +1,5 @@
 import React from "react";
-import placeholder from '../assets/Images/placeholder.jpg';
+import homeRock from '../assets/Images/IMG-1343.jpg';
 import { Container } from 'react-bootstrap';
 
 
@@ -7,7 +7,7 @@ function Homepage () {
     return(
         <Container className="text-center mt-5" fluid>
             <h1>Rocks and Ropes</h1>
-            <img src={placeholder} style={{width: '50%'}} alt='Main gym'/>
+            <img src={homeRock} style={{width: '50%'}} alt='Main gym'/>
             <p className="text-justify mt-5">
             Welcome to Rocks and Ropes, a climbing and fitness facility. If you’re familiar with climbing, go ahead and peruse the website for information about training, or even better, signup to be able to create your own personalized weekly workout with the equipment we have available.  The QR codes around the gym will link you to descriptions of exercises and equipment. 
             If you’re new to climbing, this facility may seem a bit overwhelming at first, but don’t worry, the QR codes throughout the gym will guide you through the gym and hopefully explain what is going on here! 
