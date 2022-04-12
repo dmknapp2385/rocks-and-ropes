@@ -12,10 +12,10 @@ function Rings(props) {
         setlink(`/weights/rings#${link}`)
     }
     return(
-        <Container className="mx-5" fluid>
-             <Row id='pushups' className="mt-5 mx-5">
-                <Col sm={4}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+        <Container>
+             <Row id='pushups' className="mt-5">
+                <Col className="text-center" sm={4}>
+                <img src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
                 </Col>
                 <Col sm={8}>
                     <h3>

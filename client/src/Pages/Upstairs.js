@@ -1,6 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import tension from '../assets/Images/tension-board.jpg';
+import spray from '../assets/Images/spray-wall.jpg'
 import placeholder from '../assets/Images/placeholder.jpg';
+import hangboard from '../assets/Images/hangboard.jpg';
+import campus from '../assets/Images/campus-board.jpg';
 import auth from '../utils/auth';
 
 
@@ -18,8 +22,8 @@ function Upstairs (props) {
     return(
         <Container>
             <Row id='tension' className="mt-5">
-                <Col sm={4}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                <Col className="text-center" sm={4}>
+                <img src={tension} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='tension board'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -32,8 +36,8 @@ function Upstairs (props) {
                 </Col>
             </Row>
             <Row id='spray' className="mt-5">
-                <Col sm={{span: 4, order: 'last'}}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                <Col className="text-center" sm={{span: 4, order: 'last'}}>
+                <img  src={spray} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='spray wall'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -46,8 +50,8 @@ function Upstairs (props) {
                 </Col>
             </Row>
             <Row id='hangboards' className="mt-5">
-                <Col sm={4}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                <Col className='text-center' sm={4}>
+                <img src={hangboard} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='hangboard'/>
                 </Col>
                 <Col sm={8}>
                     <h3>
@@ -60,8 +64,8 @@ function Upstairs (props) {
                 </Col>
             </Row>
             <Row id='campus' className="mt-5">
-                <Col sm={{span: 4, order: 'last'}}>
-                <img className="justify-content-center" src={placeholder} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='placeholder'/>
+                <Col className="text-center" sm={{span: 4, order: 'last'}}>
+                <img src={campus} style={{borderRadius:'5px', height: '200px', width: '200px'}} alt='campus board'/>
                 </Col>
                 <Col sm={8}>
                     <h3>

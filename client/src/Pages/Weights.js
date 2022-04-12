@@ -6,8 +6,6 @@ import placeholder from '../assets/Images/placeholder.jpg';
 function Weights () {
     return(
         <Container fluid className="mx-auto text-center mt-5">
-            <h1 className="mx-auto" style={{ width: '600px'}}>Free Weights</h1>
-
             <Row className="mt-5"> 
                 <Col>
                     <Link to='/weights/free' style={{textDecoration: 'none'}}>
