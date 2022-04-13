@@ -45,7 +45,7 @@ db.once('open', async () => {
     {
       name:"Military Press",
       description: "Hold the dumbbells with arms bent and with one end of each dumbbell resting on the fronts of the shoulders, palms facing inward. Drive the weights straight up overhead while simultaneously twisting your palms to face forward. Reverse the motion and repeat. " ,
-      image: "placeholder",
+      image: "military-press",
       link:'militarypress'
     }
     

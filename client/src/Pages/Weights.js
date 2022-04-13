@@ -2,6 +2,10 @@ import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import placeholder from '../assets/Images/placeholder.jpg';
+import rings from '../assets/Images/rings.jpg';
+import trx from '../assets/Images/trx.jpg';
+import dumbbells from '../assets/Images/dumbbells.jpg';
+ 
 
 function Weights () {
     return(
@@ -10,13 +14,13 @@ function Weights () {
                 <Col>
                     <Link to='/weights/free' style={{textDecoration: 'none'}}>
                         <h3 className='weight-link text-red'>Free Weights</h3>
-                        <img src={placeholder} style={{borderRadius:'5px', width: '20rem', }} alt='placeholder'/>
+                        <img src={dumbbells} style={{borderRadius:'5px', width: '20rem', }} alt='dumbbells'/>
                     </Link>
                 </Col>
                 <Col>
                     <Link to='/weights/rings' style={{textDecoration: 'none'}}>
                         <h3 className='weight-link text-red'>Rings</h3>
-                        <img src={placeholder} style={{borderRadius:'5px', width: '20rem'}} alt='placeholder'/>
+                        <img src={rings} style={{borderRadius:'5px', width: '20rem'}} alt='rings'/>
                     </Link>
                 </Col>
             </Row>
@@ -24,7 +28,7 @@ function Weights () {
                 <Col>
                     <Link to='/weights/trx' style={{textDecoration: 'none'}}>
                     <h3 className='weight-link text-red'>TRX Bands</h3>
-                    <img src={placeholder}  style={{borderRadius:'5px', height: '300px', width: '20rem'}} alt='placeholder'/>
+                    <img src={trx}  style={{borderRadius:'5px', height: '300px', width: '20rem'}} alt='trx bands'/>
                     </Link>
                 </Col>
             </Row>
