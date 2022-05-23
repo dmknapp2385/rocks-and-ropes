@@ -19,9 +19,6 @@ Rocks and Ropes is an application designed to help rock gym members and visitors
   * [Preview](#preview)
   * [Usage](#usage)
   * [Link](#link)
-  * [Preview](#preview)
-  * [Usage](#usage)
-  * [Link](#link)
   * [Credits](#credits)
 
 ## Technologies used
